@@ -1,0 +1,31 @@
+source,record_id,date,amount,reference_note,reason
+Bank Statement,TXN-00013,2026-08-14,207248.9,TXN1477,No corresponding gateway entry found
+Bank Statement,TXN-00022,2026-08-15,270412.22,TXN1472,No corresponding gateway entry found
+Bank Statement,TXN-00065,2026-08-23,88921.61,TXN1483,No corresponding gateway entry found
+Bank Statement,TXN-00176,2026-08-24,149269.82,TXN1488,No corresponding gateway entry found
+Bank Statement,TXN-00177,2026-08-22,119043.82,TXN1484,No corresponding gateway entry found
+Bank Statement,TXN-00220,2026-08-16,73497.41,TXN1428,Amount mismatch beyond tolerance
+Bank Statement,TXN-00290,2026-08-02,273229.78,TXN1487,No corresponding gateway entry found
+Bank Statement,TXN-00337,2026-08-07,299812.38,TXN1479,No corresponding gateway entry found
+Bank Statement,TXN-00338,2026-08-01,169995.74,TXN1485,No corresponding gateway entry found
+Bank Statement,TXN-00360,2026-08-13,171790.85,TXN1481,No corresponding gateway entry found
+Bank Statement,TXN-00382,2026-08-16,32108.89,TXN1340,Amount mismatch beyond tolerance
+Bank Statement,TXN-00451,2026-08-10,191862.14,TXN1476,Date beyond settlement window
+Bank Statement,TXN-00473,2026-08-22,233604.33,TXN1486,Date beyond settlement window
+Bank Statement,TXN-00478,2026-08-15,73537.1,TXN1347,Amount mismatch beyond tolerance
+Gateway Settlement,ORD-00009,2026-08-20,73666.11,REF-TXN1491,No corresponding bank entry found
+Gateway Settlement,ORD-00043,2026-08-10,229435.04,REF-TXN1489,No corresponding bank entry found
+Gateway Settlement,ORD-00091,2026-08-17,100325.86,REF-TXN1407,Amount mismatch beyond tolerance
+Gateway Settlement,ORD-00121,2026-08-10,96552.53,REF-TXN1496,No corresponding bank entry found
+Gateway Settlement,ORD-00181,2026-08-12,154976.71,REF-TXN1498,No corresponding bank entry found
+Gateway Settlement,ORD-00204,2026-08-22,65682.46,REF-TXN1473-B,No corresponding bank entry found
+Gateway Settlement,ORD-00270,2026-08-21,28934.59,REF-TXN1493,No corresponding bank entry found
+Gateway Settlement,ORD-00276,2026-08-12,118520.67,REF-TXN1475-B,No corresponding bank entry found
+Gateway Settlement,ORD-00284,2026-08-16,285616.85,REF-TXN1500,No corresponding bank entry found
+Gateway Settlement,ORD-00324,2026-08-02,91276.52,REF-TXN1494,No corresponding bank entry found
+Gateway Settlement,ORD-00346,2026-08-25,192620.48,REF-TXN1492,No corresponding bank entry found
+Gateway Settlement,ORD-00377,2026-08-06,75409.78,REF-TXN1499,No corresponding bank entry found
+Gateway Settlement,ORD-00418,2026-08-07,39248.16,REF-TXN1497,No corresponding bank entry found
+Gateway Settlement,ORD-00446,2026-08-19,108392.76,REF-TXN1495,No corresponding bank entry found
+Gateway Settlement,ORD-00467,2026-08-03,53119.23,REF-TXN1474-B,No corresponding bank entry found
+Gateway Settlement,ORD-00473,2026-08-26,103613.47,REF-TXN1490,No corresponding bank entry found

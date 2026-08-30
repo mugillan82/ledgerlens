@@ -1,0 +1,12 @@
+{
+    "total_value_processed": 73271127.64999999,
+    "total_value_reconciled": 70916792.66,
+    "reconciled_pct": 96.78681758352876,
+    "total_value_exceptions": 2354334.99,
+    "hours_saved": 23.7,
+    "exact_count": 338,
+    "ml_count": 136,
+    "bank_exc_count": 14,
+    "gate_exc_count": 16,
+    "matched_count": 474
+}

@@ -1,0 +1,11 @@
+{
+    "accuracy": 97.54098360655738,
+    "precision": 98.31223628691983,
+    "recall": 98.72881355932203,
+    "tp": 466,
+    "fp": 8,
+    "fn": 6,
+    "tn": 10,
+    "correct_predictions": 476,
+    "total_evaluations": 488
+}

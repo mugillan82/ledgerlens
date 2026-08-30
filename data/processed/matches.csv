@@ -1,0 +1,475 @@
+bank_txn_id,gateway_order_id,match_type,confidence,fee,fee_pct,explanation
+TXN-00001,ORD-00092,EXACT,100.0,0.0,,
+TXN-00002,ORD-00301,EXACT,100.0,0.0,,
+TXN-00003,ORD-00394,EXACT,100.0,0.0,,
+TXN-00004,ORD-00189,EXACT,100.0,0.0,,
+TXN-00005,ORD-00038,EXACT,100.0,0.0,,
+TXN-00006,ORD-00299,EXACT,100.0,0.0,,
+TXN-00007,ORD-00262,EXACT,100.0,0.0,,
+TXN-00008,ORD-00412,EXACT,100.0,0.0,,
+TXN-00009,ORD-00298,EXACT,100.0,0.0,,
+TXN-00010,ORD-00115,EXACT,100.0,0.0,,
+TXN-00012,ORD-00274,EXACT,100.0,0.0,,
+TXN-00015,ORD-00155,EXACT,100.0,0.0,,
+TXN-00016,ORD-00439,EXACT,100.0,0.0,,
+TXN-00018,ORD-00355,EXACT,100.0,0.0,,
+TXN-00023,ORD-00196,EXACT,100.0,0.0,,
+TXN-00025,ORD-00437,EXACT,100.0,0.0,,
+TXN-00026,ORD-00382,EXACT,100.0,0.0,,
+TXN-00027,ORD-00076,EXACT,100.0,0.0,,
+TXN-00028,ORD-00304,EXACT,100.0,0.0,,
+TXN-00029,ORD-00003,EXACT,100.0,0.0,,
+TXN-00030,ORD-00309,EXACT,100.0,0.0,,
+TXN-00031,ORD-00113,EXACT,100.0,0.0,,
+TXN-00033,ORD-00430,EXACT,100.0,0.0,,
+TXN-00035,ORD-00051,EXACT,100.0,0.0,,
+TXN-00036,ORD-00193,EXACT,100.0,0.0,,
+TXN-00039,ORD-00212,EXACT,100.0,0.0,,
+TXN-00040,ORD-00079,EXACT,100.0,0.0,,
+TXN-00041,ORD-00082,EXACT,100.0,0.0,,
+TXN-00042,ORD-00484,EXACT,100.0,0.0,,
+TXN-00043,ORD-00124,EXACT,100.0,0.0,,
+TXN-00044,ORD-00444,EXACT,100.0,0.0,,
+TXN-00045,ORD-00236,EXACT,100.0,0.0,,
+TXN-00046,ORD-00213,EXACT,100.0,0.0,,
+TXN-00047,ORD-00486,EXACT,100.0,0.0,,
+TXN-00048,ORD-00087,EXACT,100.0,0.0,,
+TXN-00049,ORD-00046,EXACT,100.0,0.0,,
+TXN-00050,ORD-00049,EXACT,100.0,0.0,,
+TXN-00052,ORD-00411,EXACT,100.0,0.0,,
+TXN-00053,ORD-00117,EXACT,100.0,0.0,,
+TXN-00054,ORD-00080,EXACT,100.0,0.0,,
+TXN-00055,ORD-00008,EXACT,100.0,0.0,,
+TXN-00056,ORD-00363,EXACT,100.0,0.0,,
+TXN-00057,ORD-00031,EXACT,100.0,0.0,,
+TXN-00058,ORD-00273,EXACT,100.0,0.0,,
+TXN-00060,ORD-00186,EXACT,100.0,0.0,,
+TXN-00061,ORD-00074,EXACT,100.0,0.0,,
+TXN-00062,ORD-00093,EXACT,100.0,0.0,,
+TXN-00063,ORD-00004,EXACT,100.0,0.0,,
+TXN-00064,ORD-00359,EXACT,100.0,0.0,,
+TXN-00067,ORD-00164,EXACT,100.0,0.0,,
+TXN-00068,ORD-00451,EXACT,100.0,0.0,,
+TXN-00069,ORD-00342,EXACT,100.0,0.0,,
+TXN-00071,ORD-00206,EXACT,100.0,0.0,,
+TXN-00073,ORD-00277,EXACT,100.0,0.0,,
+TXN-00074,ORD-00104,EXACT,100.0,0.0,,
+TXN-00075,ORD-00275,EXACT,100.0,0.0,,
+TXN-00078,ORD-00300,EXACT,100.0,0.0,,
+TXN-00079,ORD-00085,EXACT,100.0,0.0,,
+TXN-00080,ORD-00470,EXACT,100.0,0.0,,
+TXN-00081,ORD-00386,EXACT,100.0,0.0,,
+TXN-00085,ORD-00472,EXACT,100.0,0.0,,
+TXN-00086,ORD-00222,EXACT,100.0,0.0,,
+TXN-00088,ORD-00175,EXACT,100.0,0.0,,
+TXN-00089,ORD-00380,EXACT,100.0,0.0,,
+TXN-00092,ORD-00314,EXACT,100.0,0.0,,
+TXN-00095,ORD-00272,EXACT,100.0,0.0,,
+TXN-00096,ORD-00103,EXACT,100.0,0.0,,
+TXN-00097,ORD-00035,EXACT,100.0,0.0,,
+TXN-00098,ORD-00447,EXACT,100.0,0.0,,
+TXN-00099,ORD-00131,EXACT,100.0,0.0,,
+TXN-00100,ORD-00391,EXACT,100.0,0.0,,
+TXN-00101,ORD-00365,EXACT,100.0,0.0,,
+TXN-00104,ORD-00293,EXACT,100.0,0.0,,
+TXN-00105,ORD-00154,EXACT,100.0,0.0,,
+TXN-00106,ORD-00026,EXACT,100.0,0.0,,
+TXN-00107,ORD-00039,EXACT,100.0,0.0,,
+TXN-00109,ORD-00431,EXACT,100.0,0.0,,
+TXN-00110,ORD-00259,EXACT,100.0,0.0,,
+TXN-00111,ORD-00308,EXACT,100.0,0.0,,
+TXN-00112,ORD-00059,EXACT,100.0,0.0,,
+TXN-00114,ORD-00163,EXACT,100.0,0.0,,
+TXN-00115,ORD-00034,EXACT,100.0,0.0,,
+TXN-00116,ORD-00126,EXACT,100.0,0.0,,
+TXN-00117,ORD-00216,EXACT,100.0,0.0,,
+TXN-00118,ORD-00406,EXACT,100.0,0.0,,
+TXN-00119,ORD-00234,EXACT,100.0,0.0,,
+TXN-00120,ORD-00392,EXACT,100.0,0.0,,
+TXN-00121,ORD-00347,EXACT,100.0,0.0,,
+TXN-00123,ORD-00294,EXACT,100.0,0.0,,
+TXN-00124,ORD-00465,EXACT,100.0,0.0,,
+TXN-00126,ORD-00302,EXACT,100.0,0.0,,
+TXN-00127,ORD-00329,EXACT,100.0,0.0,,
+TXN-00128,ORD-00442,EXACT,100.0,0.0,,
+TXN-00130,ORD-00060,EXACT,100.0,0.0,,
+TXN-00131,ORD-00110,EXACT,100.0,0.0,,
+TXN-00132,ORD-00256,EXACT,100.0,0.0,,
+TXN-00134,ORD-00250,EXACT,100.0,0.0,,
+TXN-00136,ORD-00070,EXACT,100.0,0.0,,
+TXN-00137,ORD-00012,EXACT,100.0,0.0,,
+TXN-00140,ORD-00249,EXACT,100.0,0.0,,
+TXN-00141,ORD-00258,EXACT,100.0,0.0,,
+TXN-00142,ORD-00184,EXACT,100.0,0.0,,
+TXN-00144,ORD-00267,EXACT,100.0,0.0,,
+TXN-00145,ORD-00095,EXACT,100.0,0.0,,
+TXN-00147,ORD-00378,EXACT,100.0,0.0,,
+TXN-00148,ORD-00114,EXACT,100.0,0.0,,
+TXN-00149,ORD-00339,EXACT,100.0,0.0,,
+TXN-00150,ORD-00218,EXACT,100.0,0.0,,
+TXN-00153,ORD-00127,EXACT,100.0,0.0,,
+TXN-00155,ORD-00460,EXACT,100.0,0.0,,
+TXN-00157,ORD-00133,EXACT,100.0,0.0,,
+TXN-00158,ORD-00077,EXACT,100.0,0.0,,
+TXN-00159,ORD-00370,EXACT,100.0,0.0,,
+TXN-00161,ORD-00343,EXACT,100.0,0.0,,
+TXN-00162,ORD-00041,EXACT,100.0,0.0,,
+TXN-00163,ORD-00246,EXACT,100.0,0.0,,
+TXN-00165,ORD-00255,EXACT,100.0,0.0,,
+TXN-00166,ORD-00268,EXACT,100.0,0.0,,
+TXN-00167,ORD-00202,EXACT,100.0,0.0,,
+TXN-00168,ORD-00449,EXACT,100.0,0.0,,
+TXN-00169,ORD-00434,EXACT,100.0,0.0,,
+TXN-00171,ORD-00099,EXACT,100.0,0.0,,
+TXN-00172,ORD-00303,EXACT,100.0,0.0,,
+TXN-00173,ORD-00001,EXACT,100.0,0.0,,
+TXN-00174,ORD-00440,EXACT,100.0,0.0,,
+TXN-00175,ORD-00326,EXACT,100.0,0.0,,
+TXN-00180,ORD-00388,EXACT,100.0,0.0,,
+TXN-00182,ORD-00027,EXACT,100.0,0.0,,
+TXN-00183,ORD-00197,EXACT,100.0,0.0,,
+TXN-00185,ORD-00409,EXACT,100.0,0.0,,
+TXN-00186,ORD-00207,EXACT,100.0,0.0,,
+TXN-00187,ORD-00122,EXACT,100.0,0.0,,
+TXN-00189,ORD-00476,EXACT,100.0,0.0,,
+TXN-00190,ORD-00282,EXACT,100.0,0.0,,
+TXN-00191,ORD-00435,EXACT,100.0,0.0,,
+TXN-00193,ORD-00210,EXACT,100.0,0.0,,
+TXN-00194,ORD-00068,EXACT,100.0,0.0,,
+TXN-00195,ORD-00400,EXACT,100.0,0.0,,
+TXN-00196,ORD-00416,EXACT,100.0,0.0,,
+TXN-00197,ORD-00290,EXACT,100.0,0.0,,
+TXN-00198,ORD-00395,EXACT,100.0,0.0,,
+TXN-00199,ORD-00146,EXACT,100.0,0.0,,
+TXN-00200,ORD-00328,EXACT,100.0,0.0,,
+TXN-00201,ORD-00118,EXACT,100.0,0.0,,
+TXN-00202,ORD-00005,EXACT,100.0,0.0,,
+TXN-00203,ORD-00007,EXACT,100.0,0.0,,
+TXN-00204,ORD-00017,EXACT,100.0,0.0,,
+TXN-00205,ORD-00421,EXACT,100.0,0.0,,
+TXN-00209,ORD-00252,EXACT,100.0,0.0,,
+TXN-00210,ORD-00148,EXACT,100.0,0.0,,
+TXN-00213,ORD-00165,EXACT,100.0,0.0,,
+TXN-00214,ORD-00379,EXACT,100.0,0.0,,
+TXN-00215,ORD-00362,EXACT,100.0,0.0,,
+TXN-00216,ORD-00385,EXACT,100.0,0.0,,
+TXN-00217,ORD-00170,EXACT,100.0,0.0,,
+TXN-00218,ORD-00387,EXACT,100.0,0.0,,
+TXN-00221,ORD-00220,EXACT,100.0,0.0,,
+TXN-00223,ORD-00053,EXACT,100.0,0.0,,
+TXN-00224,ORD-00477,EXACT,100.0,0.0,,
+TXN-00228,ORD-00269,EXACT,100.0,0.0,,
+TXN-00229,ORD-00217,EXACT,100.0,0.0,,
+TXN-00230,ORD-00466,EXACT,100.0,0.0,,
+TXN-00231,ORD-00291,EXACT,100.0,0.0,,
+TXN-00233,ORD-00142,EXACT,100.0,0.0,,
+TXN-00235,ORD-00322,EXACT,100.0,0.0,,
+TXN-00236,ORD-00423,EXACT,100.0,0.0,,
+TXN-00237,ORD-00183,EXACT,100.0,0.0,,
+TXN-00238,ORD-00174,EXACT,100.0,0.0,,
+TXN-00240,ORD-00006,EXACT,100.0,0.0,,
+TXN-00243,ORD-00443,EXACT,100.0,0.0,,
+TXN-00244,ORD-00199,EXACT,100.0,0.0,,
+TXN-00245,ORD-00125,EXACT,100.0,0.0,,
+TXN-00246,ORD-00335,EXACT,100.0,0.0,,
+TXN-00249,ORD-00143,EXACT,100.0,0.0,,
+TXN-00250,ORD-00226,EXACT,100.0,0.0,,
+TXN-00251,ORD-00030,EXACT,100.0,0.0,,
+TXN-00252,ORD-00120,EXACT,100.0,0.0,,
+TXN-00254,ORD-00352,EXACT,100.0,0.0,,
+TXN-00255,ORD-00368,EXACT,100.0,0.0,,
+TXN-00256,ORD-00344,EXACT,100.0,0.0,,
+TXN-00257,ORD-00373,EXACT,100.0,0.0,,
+TXN-00260,ORD-00271,EXACT,100.0,0.0,,
+TXN-00261,ORD-00297,EXACT,100.0,0.0,,
+TXN-00262,ORD-00037,EXACT,100.0,0.0,,
+TXN-00263,ORD-00318,EXACT,100.0,0.0,,
+TXN-00265,ORD-00450,EXACT,100.0,0.0,,
+TXN-00266,ORD-00083,EXACT,100.0,0.0,,
+TXN-00267,ORD-00407,EXACT,100.0,0.0,,
+TXN-00270,ORD-00137,EXACT,100.0,0.0,,
+TXN-00274,ORD-00232,EXACT,100.0,0.0,,
+TXN-00275,ORD-00453,EXACT,100.0,0.0,,
+TXN-00276,ORD-00468,EXACT,100.0,0.0,,
+TXN-00278,ORD-00289,EXACT,100.0,0.0,,
+TXN-00279,ORD-00106,EXACT,100.0,0.0,,
+TXN-00280,ORD-00417,EXACT,100.0,0.0,,
+TXN-00281,ORD-00349,EXACT,100.0,0.0,,
+TXN-00282,ORD-00075,EXACT,100.0,0.0,,
+TXN-00283,ORD-00166,EXACT,100.0,0.0,,
+TXN-00285,ORD-00022,EXACT,100.0,0.0,,
+TXN-00286,ORD-00238,EXACT,100.0,0.0,,
+TXN-00288,ORD-00227,EXACT,100.0,0.0,,
+TXN-00291,ORD-00065,EXACT,100.0,0.0,,
+TXN-00292,ORD-00033,EXACT,100.0,0.0,,
+TXN-00293,ORD-00464,EXACT,100.0,0.0,,
+TXN-00294,ORD-00481,EXACT,100.0,0.0,,
+TXN-00296,ORD-00251,EXACT,100.0,0.0,,
+TXN-00299,ORD-00235,EXACT,100.0,0.0,,
+TXN-00300,ORD-00161,EXACT,100.0,0.0,,
+TXN-00301,ORD-00100,EXACT,100.0,0.0,,
+TXN-00302,ORD-00257,EXACT,100.0,0.0,,
+TXN-00303,ORD-00102,EXACT,100.0,0.0,,
+TXN-00305,ORD-00159,EXACT,100.0,0.0,,
+TXN-00306,ORD-00323,EXACT,100.0,0.0,,
+TXN-00307,ORD-00336,EXACT,100.0,0.0,,
+TXN-00308,ORD-00089,EXACT,100.0,0.0,,
+TXN-00310,ORD-00057,EXACT,100.0,0.0,,
+TXN-00312,ORD-00096,EXACT,100.0,0.0,,
+TXN-00313,ORD-00482,EXACT,100.0,0.0,,
+TXN-00314,ORD-00109,EXACT,100.0,0.0,,
+TXN-00316,ORD-00214,EXACT,100.0,0.0,,
+TXN-00318,ORD-00141,EXACT,100.0,0.0,,
+TXN-00319,ORD-00211,EXACT,100.0,0.0,,
+TXN-00320,ORD-00263,EXACT,100.0,0.0,,
+TXN-00322,ORD-00098,EXACT,100.0,0.0,,
+TXN-00323,ORD-00311,EXACT,100.0,0.0,,
+TXN-00325,ORD-00111,EXACT,100.0,0.0,,
+TXN-00326,ORD-00408,EXACT,100.0,0.0,,
+TXN-00327,ORD-00036,EXACT,100.0,0.0,,
+TXN-00329,ORD-00383,EXACT,100.0,0.0,,
+TXN-00330,ORD-00168,EXACT,100.0,0.0,,
+TXN-00332,ORD-00013,EXACT,100.0,0.0,,
+TXN-00333,ORD-00361,EXACT,100.0,0.0,,
+TXN-00335,ORD-00397,EXACT,100.0,0.0,,
+TXN-00336,ORD-00203,EXACT,100.0,0.0,,
+TXN-00339,ORD-00454,EXACT,100.0,0.0,,
+TXN-00340,ORD-00140,EXACT,100.0,0.0,,
+TXN-00342,ORD-00375,EXACT,100.0,0.0,,
+TXN-00343,ORD-00107,EXACT,100.0,0.0,,
+TXN-00345,ORD-00305,EXACT,100.0,0.0,,
+TXN-00346,ORD-00239,EXACT,100.0,0.0,,
+TXN-00347,ORD-00296,EXACT,100.0,0.0,,
+TXN-00348,ORD-00403,EXACT,100.0,0.0,,
+TXN-00351,ORD-00420,EXACT,100.0,0.0,,
+TXN-00352,ORD-00354,EXACT,100.0,0.0,,
+TXN-00354,ORD-00319,EXACT,100.0,0.0,,
+TXN-00355,ORD-00265,EXACT,100.0,0.0,,
+TXN-00356,ORD-00376,EXACT,100.0,0.0,,
+TXN-00358,ORD-00471,EXACT,100.0,0.0,,
+TXN-00359,ORD-00338,EXACT,100.0,0.0,,
+TXN-00361,ORD-00028,EXACT,100.0,0.0,,
+TXN-00363,ORD-00360,EXACT,100.0,0.0,,
+TXN-00364,ORD-00462,EXACT,100.0,0.0,,
+TXN-00366,ORD-00325,EXACT,100.0,0.0,,
+TXN-00368,ORD-00052,EXACT,100.0,0.0,,
+TXN-00369,ORD-00371,EXACT,100.0,0.0,,
+TXN-00370,ORD-00150,EXACT,100.0,0.0,,
+TXN-00371,ORD-00029,EXACT,100.0,0.0,,
+TXN-00372,ORD-00054,EXACT,100.0,0.0,,
+TXN-00373,ORD-00242,EXACT,100.0,0.0,,
+TXN-00374,ORD-00071,EXACT,100.0,0.0,,
+TXN-00375,ORD-00483,EXACT,100.0,0.0,,
+TXN-00376,ORD-00097,EXACT,100.0,0.0,,
+TXN-00377,ORD-00283,EXACT,100.0,0.0,,
+TXN-00378,ORD-00419,EXACT,100.0,0.0,,
+TXN-00379,ORD-00172,EXACT,100.0,0.0,,
+TXN-00380,ORD-00374,EXACT,100.0,0.0,,
+TXN-00381,ORD-00208,EXACT,100.0,0.0,,
+TXN-00385,ORD-00315,EXACT,100.0,0.0,,
+TXN-00386,ORD-00016,EXACT,100.0,0.0,,
+TXN-00387,ORD-00020,EXACT,100.0,0.0,,
+TXN-00389,ORD-00228,EXACT,100.0,0.0,,
+TXN-00390,ORD-00192,EXACT,100.0,0.0,,
+TXN-00391,ORD-00452,EXACT,100.0,0.0,,
+TXN-00392,ORD-00287,EXACT,100.0,0.0,,
+TXN-00393,ORD-00123,EXACT,100.0,0.0,,
+TXN-00396,ORD-00448,EXACT,100.0,0.0,,
+TXN-00399,ORD-00402,EXACT,100.0,0.0,,
+TXN-00400,ORD-00225,EXACT,100.0,0.0,,
+TXN-00403,ORD-00086,EXACT,100.0,0.0,,
+TXN-00404,ORD-00094,EXACT,100.0,0.0,,
+TXN-00405,ORD-00245,EXACT,100.0,0.0,,
+TXN-00406,ORD-00330,EXACT,100.0,0.0,,
+TXN-00407,ORD-00185,EXACT,100.0,0.0,,
+TXN-00408,ORD-00341,EXACT,100.0,0.0,,
+TXN-00410,ORD-00353,EXACT,100.0,0.0,,
+TXN-00411,ORD-00436,EXACT,100.0,0.0,,
+TXN-00414,ORD-00237,EXACT,100.0,0.0,,
+TXN-00415,ORD-00381,EXACT,100.0,0.0,,
+TXN-00416,ORD-00428,EXACT,100.0,0.0,,
+TXN-00420,ORD-00011,EXACT,100.0,0.0,,
+TXN-00422,ORD-00279,EXACT,100.0,0.0,,
+TXN-00423,ORD-00261,EXACT,100.0,0.0,,
+TXN-00424,ORD-00167,EXACT,100.0,0.0,,
+TXN-00425,ORD-00348,EXACT,100.0,0.0,,
+TXN-00426,ORD-00015,EXACT,100.0,0.0,,
+TXN-00428,ORD-00130,EXACT,100.0,0.0,,
+TXN-00429,ORD-00169,EXACT,100.0,0.0,,
+TXN-00430,ORD-00425,EXACT,100.0,0.0,,
+TXN-00431,ORD-00066,EXACT,100.0,0.0,,
+TXN-00432,ORD-00333,EXACT,100.0,0.0,,
+TXN-00433,ORD-00088,EXACT,100.0,0.0,,
+TXN-00434,ORD-00032,EXACT,100.0,0.0,,
+TXN-00436,ORD-00316,EXACT,100.0,0.0,,
+TXN-00438,ORD-00264,EXACT,100.0,0.0,,
+TXN-00440,ORD-00247,EXACT,100.0,0.0,,
+TXN-00441,ORD-00310,EXACT,100.0,0.0,,
+TXN-00443,ORD-00357,EXACT,100.0,0.0,,
+TXN-00444,ORD-00401,EXACT,100.0,0.0,,
+TXN-00445,ORD-00231,EXACT,100.0,0.0,,
+TXN-00446,ORD-00058,EXACT,100.0,0.0,,
+TXN-00447,ORD-00061,EXACT,100.0,0.0,,
+TXN-00448,ORD-00233,EXACT,100.0,0.0,,
+TXN-00449,ORD-00334,EXACT,100.0,0.0,,
+TXN-00450,ORD-00396,EXACT,100.0,0.0,,
+TXN-00452,ORD-00064,EXACT,100.0,0.0,,
+TXN-00453,ORD-00372,EXACT,100.0,0.0,,
+TXN-00454,ORD-00241,EXACT,100.0,0.0,,
+TXN-00456,ORD-00384,EXACT,100.0,0.0,,
+TXN-00457,ORD-00042,EXACT,100.0,0.0,,
+TXN-00458,ORD-00069,EXACT,100.0,0.0,,
+TXN-00459,ORD-00195,EXACT,100.0,0.0,,
+TXN-00462,ORD-00390,EXACT,100.0,0.0,,
+TXN-00463,ORD-00044,EXACT,100.0,0.0,,
+TXN-00464,ORD-00367,EXACT,100.0,0.0,,
+TXN-00465,ORD-00306,EXACT,100.0,0.0,,
+TXN-00466,ORD-00149,EXACT,100.0,0.0,,
+TXN-00467,ORD-00171,EXACT,100.0,0.0,,
+TXN-00468,ORD-00351,EXACT,100.0,0.0,,
+TXN-00470,ORD-00358,EXACT,100.0,0.0,,
+TXN-00471,ORD-00153,EXACT,100.0,0.0,,
+TXN-00472,ORD-00285,EXACT,100.0,0.0,,
+TXN-00475,ORD-00101,EXACT,100.0,0.0,,
+TXN-00480,ORD-00438,EXACT,100.0,0.0,,
+TXN-00482,ORD-00479,EXACT,100.0,0.0,,
+TXN-00483,ORD-00108,EXACT,100.0,0.0,,
+TXN-00484,ORD-00158,EXACT,100.0,0.0,,
+TXN-00485,ORD-00062,EXACT,100.0,0.0,,
+TXN-00487,ORD-00266,EXACT,100.0,0.0,,
+TXN-00011,ORD-00480,ML_MATCH,77.58,1271.34,3.9187,"ML match: partial reference similarity (75.0%, refs differ); amount diff 3.92% (outside normal fee band); same-day settlement"
+TXN-00014,ORD-00151,ML_MATCH,100.0,787.89,2.54,ML match: exact reference match (ref similarity 100.0%); amount within 1-3% fee band (2.54% diff); same-day settlement
+TXN-00017,ORD-00441,ML_MATCH,100.0,2828.07,1.14,ML match: exact reference match (ref similarity 100.0%); amount within 1-3% fee band (1.14% diff); same-day settlement
+TXN-00019,ORD-00221,ML_MATCH,100.0,0.0,0.0,ML match: exact reference match (ref similarity 100.0%); identical amounts; 1-day date gap
+TXN-00020,ORD-00244,ML_MATCH,78.87,0.0,0.0,"ML match: partial reference similarity (75.0%, refs differ); identical amounts; same-day settlement"
+TXN-00021,ORD-00040,ML_MATCH,76.66,-16743.69,-6.6006,"ML match: partial reference similarity (75.0%, refs differ); amount diff 6.60% (outside normal fee band); same-day settlement"
+TXN-00024,ORD-00317,ML_MATCH,100.0,3092.19,1.35,ML match: exact reference match (ref similarity 100.0%); amount within 1-3% fee band (1.35% diff); same-day settlement
+TXN-00032,ORD-00487,ML_MATCH,78.87,0.0,0.0,"ML match: partial reference similarity (75.0%, refs differ); identical amounts; same-day settlement"
+TXN-00034,ORD-00194,ML_MATCH,99.99,0.0,0.0,ML match: exact reference match (ref similarity 100.0%); identical amounts; 2-day date gap
+TXN-00037,ORD-00045,ML_MATCH,100.0,4730.37,2.66,ML match: exact reference match (ref similarity 100.0%); amount within 1-3% fee band (2.66% diff); same-day settlement
+TXN-00038,ORD-00135,ML_MATCH,78.87,0.0,0.0,"ML match: partial reference similarity (75.0%, refs differ); identical amounts; same-day settlement"
+TXN-00051,ORD-00369,ML_MATCH,100.0,2474.77,1.57,ML match: exact reference match (ref similarity 100.0%); amount within 1-3% fee band (1.57% diff); same-day settlement
+TXN-00059,ORD-00321,ML_MATCH,100.0,541.34,2.92,ML match: exact reference match (ref similarity 100.0%); amount within 1-3% fee band (2.92% diff); same-day settlement
+TXN-00066,ORD-00426,ML_MATCH,99.99,0.0,0.0,ML match: exact reference match (ref similarity 100.0%); identical amounts; 2-day date gap
+TXN-00070,ORD-00331,ML_MATCH,100.0,2992.79,1.99,ML match: exact reference match (ref similarity 100.0%); amount within 1-3% fee band (1.99% diff); same-day settlement
+TXN-00072,ORD-00393,ML_MATCH,99.95,0.0,0.0,ML match: exact reference match (ref similarity 100.0%); identical amounts; 3-day date gap
+TXN-00076,ORD-00224,ML_MATCH,99.99,0.0,0.0,ML match: exact reference match (ref similarity 100.0%); identical amounts; 2-day date gap
+TXN-00077,ORD-00205,ML_MATCH,78.87,0.0,0.0,"ML match: partial reference similarity (75.0%, refs differ); identical amounts; same-day settlement"
+TXN-00082,ORD-00063,ML_MATCH,99.99,0.0,0.0,ML match: exact reference match (ref similarity 100.0%); identical amounts; 2-day date gap
+TXN-00083,ORD-00019,ML_MATCH,100.0,962.43,2.13,ML match: exact reference match (ref similarity 100.0%); amount within 1-3% fee band (2.13% diff); same-day settlement
+TXN-00084,ORD-00488,ML_MATCH,100.0,3969.8,1.69,ML match: exact reference match (ref similarity 100.0%); amount within 1-3% fee band (1.69% diff); same-day settlement
+TXN-00087,ORD-00162,ML_MATCH,99.95,0.0,0.0,ML match: exact reference match (ref similarity 100.0%); identical amounts; 3-day date gap
+TXN-00090,ORD-00458,ML_MATCH,100.0,2022.06,1.91,ML match: exact reference match (ref similarity 100.0%); amount within 1-3% fee band (1.91% diff); same-day settlement
+TXN-00091,ORD-00157,ML_MATCH,99.99,0.0,0.0,ML match: exact reference match (ref similarity 100.0%); identical amounts; 2-day date gap
+TXN-00093,ORD-00295,ML_MATCH,100.0,2316.74,2.72,ML match: exact reference match (ref similarity 100.0%); amount within 1-3% fee band (2.72% diff); same-day settlement
+TXN-00094,ORD-00292,ML_MATCH,78.87,0.0,0.0,"ML match: partial reference similarity (75.0%, refs differ); identical amounts; same-day settlement"
+TXN-00102,ORD-00200,ML_MATCH,100.0,4107.63,2.37,ML match: exact reference match (ref similarity 100.0%); amount within 1-3% fee band (2.37% diff); same-day settlement
+TXN-00103,ORD-00177,ML_MATCH,100.0,0.0,0.0,ML match: exact reference match (ref similarity 100.0%); identical amounts; 1-day date gap
+TXN-00108,ORD-00455,ML_MATCH,100.0,6339.74,2.4,ML match: exact reference match (ref similarity 100.0%); amount within 1-3% fee band (2.40% diff); same-day settlement
+TXN-00113,ORD-00182,ML_MATCH,99.99,0.0,0.0,ML match: exact reference match (ref similarity 100.0%); identical amounts; 2-day date gap
+TXN-00122,ORD-00389,ML_MATCH,100.0,3350.39,1.67,ML match: exact reference match (ref similarity 100.0%); amount within 1-3% fee band (1.67% diff); same-day settlement
+TXN-00125,ORD-00415,ML_MATCH,100.0,0.0,0.0,ML match: exact reference match (ref similarity 100.0%); identical amounts; 1-day date gap
+TXN-00129,ORD-00223,ML_MATCH,100.0,2417.1,1.68,ML match: exact reference match (ref similarity 100.0%); amount within 1-3% fee band (1.68% diff); same-day settlement
+TXN-00133,ORD-00332,ML_MATCH,100.0,881.8,1.3,ML match: exact reference match (ref similarity 100.0%); amount within 1-3% fee band (1.30% diff); same-day settlement
+TXN-00135,ORD-00286,ML_MATCH,100.0,0.0,0.0,ML match: exact reference match (ref similarity 100.0%); identical amounts; 1-day date gap
+TXN-00138,ORD-00366,ML_MATCH,100.0,1622.98,2.35,ML match: exact reference match (ref similarity 100.0%); amount within 1-3% fee band (2.35% diff); same-day settlement
+TXN-00139,ORD-00337,ML_MATCH,100.0,390.18,1.5,ML match: exact reference match (ref similarity 100.0%); amount within 1-3% fee band (1.50% diff); same-day settlement
+TXN-00143,ORD-00105,ML_MATCH,100.0,90.06,1.5899,ML match: exact reference match (ref similarity 100.0%); amount within 1-3% fee band (1.59% diff); same-day settlement
+TXN-00146,ORD-00399,ML_MATCH,100.0,2923.85,2.38,ML match: exact reference match (ref similarity 100.0%); amount within 1-3% fee band (2.38% diff); same-day settlement
+TXN-00151,ORD-00156,ML_MATCH,99.99,0.0,0.0,ML match: exact reference match (ref similarity 100.0%); identical amounts; 2-day date gap
+TXN-00152,ORD-00139,ML_MATCH,100.0,637.84,2.44,ML match: exact reference match (ref similarity 100.0%); amount within 1-3% fee band (2.44% diff); same-day settlement
+TXN-00154,ORD-00489,ML_MATCH,99.95,0.0,0.0,ML match: exact reference match (ref similarity 100.0%); identical amounts; 3-day date gap
+TXN-00156,ORD-00410,ML_MATCH,100.0,4807.7,2.51,ML match: exact reference match (ref similarity 100.0%); amount within 1-3% fee band (2.51% diff); same-day settlement
+TXN-00160,ORD-00404,ML_MATCH,100.0,3972.92,2.39,ML match: exact reference match (ref similarity 100.0%); amount within 1-3% fee band (2.39% diff); same-day settlement
+TXN-00164,ORD-00129,ML_MATCH,100.0,3108.46,1.54,ML match: exact reference match (ref similarity 100.0%); amount within 1-3% fee band (1.54% diff); same-day settlement
+TXN-00170,ORD-00023,ML_MATCH,72.67,15616.37,10.0,"ML match: partial reference similarity (75.0%, refs differ); amount diff 17.52% (outside normal fee band); same-day settlement"
+TXN-00178,ORD-00187,ML_MATCH,100.0,418.69,1.09,ML match: exact reference match (ref similarity 100.0%); amount within 1-3% fee band (1.09% diff); same-day settlement
+TXN-00179,ORD-00345,ML_MATCH,100.0,3472.9,1.36,ML match: exact reference match (ref similarity 100.0%); amount within 1-3% fee band (1.36% diff); same-day settlement
+TXN-00181,ORD-00025,ML_MATCH,100.0,4441.03,1.8,ML match: exact reference match (ref similarity 100.0%); amount within 1-3% fee band (1.80% diff); same-day settlement
+TXN-00184,ORD-00456,ML_MATCH,100.0,4735.77,2.55,ML match: exact reference match (ref similarity 100.0%); amount within 1-3% fee band (2.55% diff); same-day settlement
+TXN-00188,ORD-00485,ML_MATCH,99.99,0.0,0.0,ML match: exact reference match (ref similarity 100.0%); identical amounts; 2-day date gap
+TXN-00192,ORD-00313,ML_MATCH,100.0,5209.84,2.19,ML match: exact reference match (ref similarity 100.0%); amount within 1-3% fee band (2.19% diff); same-day settlement
+TXN-00206,ORD-00179,ML_MATCH,100.0,2132.41,2.62,ML match: exact reference match (ref similarity 100.0%); amount within 1-3% fee band (2.62% diff); same-day settlement
+TXN-00207,ORD-00356,ML_MATCH,100.0,2365.66,2.49,ML match: exact reference match (ref similarity 100.0%); amount within 1-3% fee band (2.49% diff); same-day settlement
+TXN-00208,ORD-00253,ML_MATCH,99.99,0.0,0.0,ML match: exact reference match (ref similarity 100.0%); identical amounts; 2-day date gap
+TXN-00211,ORD-00073,ML_MATCH,100.0,1833.97,1.04,ML match: exact reference match (ref similarity 100.0%); amount within 1-3% fee band (1.04% diff); same-day settlement
+TXN-00212,ORD-00229,ML_MATCH,100.0,0.0,0.0,ML match: exact reference match (ref similarity 100.0%); identical amounts; 1-day date gap
+TXN-00219,ORD-00147,ML_MATCH,100.0,939.86,1.24,ML match: exact reference match (ref similarity 100.0%); amount within 1-3% fee band (1.24% diff); same-day settlement
+TXN-00222,ORD-00364,ML_MATCH,100.0,2559.61,1.89,ML match: exact reference match (ref similarity 100.0%); amount within 1-3% fee band (1.89% diff); same-day settlement
+TXN-00225,ORD-00090,ML_MATCH,100.0,0.0,0.0,ML match: exact reference match (ref similarity 100.0%); identical amounts; 1-day date gap
+TXN-00226,ORD-00461,ML_MATCH,100.0,0.0,0.0,ML match: exact reference match (ref similarity 100.0%); identical amounts; 1-day date gap
+TXN-00227,ORD-00047,ML_MATCH,100.0,1622.91,1.52,ML match: exact reference match (ref similarity 100.0%); amount within 1-3% fee band (1.52% diff); same-day settlement
+TXN-00232,ORD-00413,ML_MATCH,99.95,0.0,0.0,ML match: exact reference match (ref similarity 100.0%); identical amounts; 3-day date gap
+TXN-00234,ORD-00478,ML_MATCH,100.0,23355.51,10.0,ML match: exact reference match (ref similarity 100.0%); amount diff 23.28% (outside normal fee band); 1-day date gap
+TXN-00239,ORD-00178,ML_MATCH,99.93,53119.23,10.0,"ML match: high reference similarity (88.9%, refs differ slightly); amount diff 40.00% (outside normal fee band); same-day settlement"
+TXN-00241,ORD-00432,ML_MATCH,100.0,5536.25,2.83,ML match: exact reference match (ref similarity 100.0%); amount within 1-3% fee band (2.83% diff); same-day settlement
+TXN-00242,ORD-00463,ML_MATCH,100.0,5640.2,1.94,ML match: exact reference match (ref similarity 100.0%); amount within 1-3% fee band (1.94% diff); same-day settlement
+TXN-00247,ORD-00190,ML_MATCH,99.95,0.0,0.0,ML match: exact reference match (ref similarity 100.0%); identical amounts; 3-day date gap
+TXN-00248,ORD-00119,ML_MATCH,99.99,0.0,0.0,ML match: exact reference match (ref similarity 100.0%); identical amounts; 2-day date gap
+TXN-00253,ORD-00307,ML_MATCH,99.95,0.0,0.0,ML match: exact reference match (ref similarity 100.0%); identical amounts; 3-day date gap
+TXN-00258,ORD-00230,ML_MATCH,99.99,0.0,0.0,ML match: exact reference match (ref similarity 100.0%); identical amounts; 2-day date gap
+TXN-00259,ORD-00128,ML_MATCH,100.0,0.0,0.0,ML match: exact reference match (ref similarity 100.0%); identical amounts; 1-day date gap
+TXN-00264,ORD-00180,ML_MATCH,100.0,3233.93,2.47,ML match: exact reference match (ref similarity 100.0%); amount within 1-3% fee band (2.47% diff); same-day settlement
+TXN-00268,ORD-00056,ML_MATCH,100.0,604.41,1.15,ML match: exact reference match (ref similarity 100.0%); amount within 1-3% fee band (1.15% diff); same-day settlement
+TXN-00269,ORD-00201,ML_MATCH,100.0,3565.18,2.45,ML match: exact reference match (ref similarity 100.0%); amount within 1-3% fee band (2.45% diff); same-day settlement
+TXN-00271,ORD-00474,ML_MATCH,100.0,2342.56,2.11,ML match: exact reference match (ref similarity 100.0%); amount within 1-3% fee band (2.11% diff); same-day settlement
+TXN-00272,ORD-00219,ML_MATCH,99.99,0.0,0.0,ML match: exact reference match (ref similarity 100.0%); identical amounts; 2-day date gap
+TXN-00273,ORD-00288,ML_MATCH,99.95,0.0,0.0,ML match: exact reference match (ref similarity 100.0%); identical amounts; 3-day date gap
+TXN-00277,ORD-00350,ML_MATCH,100.0,4037.11,1.42,ML match: exact reference match (ref similarity 100.0%); amount within 1-3% fee band (1.42% diff); same-day settlement
+TXN-00284,ORD-00327,ML_MATCH,99.99,0.0,0.0,ML match: exact reference match (ref similarity 100.0%); identical amounts; 2-day date gap
+TXN-00287,ORD-00078,ML_MATCH,99.95,0.0,0.0,ML match: exact reference match (ref similarity 100.0%); identical amounts; 3-day date gap
+TXN-00289,ORD-00144,ML_MATCH,100.0,558.7,1.03,ML match: exact reference match (ref similarity 100.0%); amount within 1-3% fee band (1.03% diff); same-day settlement
+TXN-00295,ORD-00160,ML_MATCH,100.0,3972.97,1.59,ML match: exact reference match (ref similarity 100.0%); amount within 1-3% fee band (1.59% diff); same-day settlement
+TXN-00297,ORD-00072,ML_MATCH,100.0,2264.33,1.14,ML match: exact reference match (ref similarity 100.0%); amount within 1-3% fee band (1.14% diff); same-day settlement
+TXN-00298,ORD-00429,ML_MATCH,100.0,5196.27,1.88,ML match: exact reference match (ref similarity 100.0%); amount within 1-3% fee band (1.88% diff); same-day settlement
+TXN-00304,ORD-00427,ML_MATCH,99.99,0.0,0.0,ML match: exact reference match (ref similarity 100.0%); identical amounts; 2-day date gap
+TXN-00309,ORD-00081,ML_MATCH,100.0,5136.51,1.92,ML match: exact reference match (ref similarity 100.0%); amount within 1-3% fee band (1.92% diff); same-day settlement
+TXN-00311,ORD-00469,ML_MATCH,100.0,2859.41,1.38,ML match: exact reference match (ref similarity 100.0%); amount within 1-3% fee band (1.38% diff); same-day settlement
+TXN-00315,ORD-00067,ML_MATCH,100.0,4993.21,2.78,ML match: exact reference match (ref similarity 100.0%); amount within 1-3% fee band (2.78% diff); same-day settlement
+TXN-00317,ORD-00138,ML_MATCH,100.0,5182.47,1.85,ML match: exact reference match (ref similarity 100.0%); amount within 1-3% fee band (1.85% diff); same-day settlement
+TXN-00321,ORD-00048,ML_MATCH,100.0,5881.6,2.85,ML match: exact reference match (ref similarity 100.0%); amount within 1-3% fee band (2.85% diff); same-day settlement
+TXN-00324,ORD-00248,ML_MATCH,99.99,0.0,0.0,ML match: exact reference match (ref similarity 100.0%); identical amounts; 2-day date gap
+TXN-00328,ORD-00191,ML_MATCH,99.95,0.0,0.0,ML match: exact reference match (ref similarity 100.0%); identical amounts; 3-day date gap
+TXN-00331,ORD-00002,ML_MATCH,99.99,0.0,0.0,ML match: exact reference match (ref similarity 100.0%); identical amounts; 2-day date gap
+TXN-00334,ORD-00084,ML_MATCH,100.0,4962.22,2.4,ML match: exact reference match (ref similarity 100.0%); amount within 1-3% fee band (2.40% diff); same-day settlement
+TXN-00341,ORD-00145,ML_MATCH,99.93,65682.46,10.0,"ML match: high reference similarity (88.9%, refs differ slightly); amount diff 40.00% (outside normal fee band); same-day settlement"
+TXN-00344,ORD-00414,ML_MATCH,100.0,3840.17,1.98,ML match: exact reference match (ref similarity 100.0%); amount within 1-3% fee band (1.98% diff); same-day settlement
+TXN-00349,ORD-00116,ML_MATCH,100.0,5177.04,2.18,ML match: exact reference match (ref similarity 100.0%); amount within 1-3% fee band (2.18% diff); same-day settlement
+TXN-00350,ORD-00445,ML_MATCH,78.87,0.0,0.0,"ML match: partial reference similarity (75.0%, refs differ); identical amounts; same-day settlement"
+TXN-00353,ORD-00424,ML_MATCH,100.0,2772.87,2.7,ML match: exact reference match (ref similarity 100.0%); amount within 1-3% fee band (2.70% diff); same-day settlement
+TXN-00357,ORD-00198,ML_MATCH,99.99,0.0,0.0,ML match: exact reference match (ref similarity 100.0%); identical amounts; 2-day date gap
+TXN-00362,ORD-00260,ML_MATCH,100.0,5070.86,2.21,ML match: exact reference match (ref similarity 100.0%); amount within 1-3% fee band (2.21% diff); same-day settlement
+TXN-00365,ORD-00320,ML_MATCH,99.99,0.0,0.0,ML match: exact reference match (ref similarity 100.0%); identical amounts; 2-day date gap
+TXN-00367,ORD-00050,ML_MATCH,99.99,0.0,0.0,ML match: exact reference match (ref similarity 100.0%); identical amounts; 2-day date gap
+TXN-00383,ORD-00405,ML_MATCH,76.76,4852.52,6.3044,"ML match: partial reference similarity (75.0%, refs differ); amount diff 6.30% (outside normal fee band); same-day settlement"
+TXN-00384,ORD-00243,ML_MATCH,99.95,0.0,0.0,ML match: exact reference match (ref similarity 100.0%); identical amounts; 3-day date gap
+TXN-00388,ORD-00176,ML_MATCH,99.93,118520.67,10.0,"ML match: high reference similarity (88.9%, refs differ slightly); amount diff 40.00% (outside normal fee band); same-day settlement"
+TXN-00394,ORD-00024,ML_MATCH,100.0,3389.28,2.03,ML match: exact reference match (ref similarity 100.0%); amount within 1-3% fee band (2.03% diff); same-day settlement
+TXN-00395,ORD-00280,ML_MATCH,99.99,0.0,0.0,ML match: exact reference match (ref similarity 100.0%); identical amounts; 2-day date gap
+TXN-00397,ORD-00457,ML_MATCH,99.99,0.0,0.0,ML match: exact reference match (ref similarity 100.0%); identical amounts; 2-day date gap
+TXN-00398,ORD-00132,ML_MATCH,100.0,1455.53,1.5,ML match: exact reference match (ref similarity 100.0%); amount within 1-3% fee band (1.50% diff); same-day settlement
+TXN-00401,ORD-00136,ML_MATCH,99.95,0.0,0.0,ML match: exact reference match (ref similarity 100.0%); identical amounts; 3-day date gap
+TXN-00402,ORD-00018,ML_MATCH,100.0,2468.27,1.48,ML match: exact reference match (ref similarity 100.0%); amount within 1-3% fee band (1.48% diff); same-day settlement
+TXN-00409,ORD-00475,ML_MATCH,100.0,2236.01,1.24,ML match: exact reference match (ref similarity 100.0%); amount within 1-3% fee band (1.24% diff); same-day settlement
+TXN-00412,ORD-00173,ML_MATCH,100.0,2070.39,2.72,ML match: exact reference match (ref similarity 100.0%); amount within 1-3% fee band (2.72% diff); same-day settlement
+TXN-00413,ORD-00240,ML_MATCH,100.0,0.0,0.0,ML match: exact reference match (ref similarity 100.0%); identical amounts; 1-day date gap
+TXN-00417,ORD-00188,ML_MATCH,100.0,3343.81,1.61,ML match: exact reference match (ref similarity 100.0%); amount within 1-3% fee band (1.61% diff); same-day settlement
+TXN-00418,ORD-00312,ML_MATCH,100.0,4781.93,1.61,ML match: exact reference match (ref similarity 100.0%); amount within 1-3% fee band (1.61% diff); same-day settlement
+TXN-00419,ORD-00459,ML_MATCH,100.0,4487.35,1.93,ML match: exact reference match (ref similarity 100.0%); amount within 1-3% fee band (1.93% diff); same-day settlement
+TXN-00421,ORD-00209,ML_MATCH,78.87,0.0,0.0,"ML match: partial reference similarity (75.0%, refs differ); identical amounts; same-day settlement"
+TXN-00427,ORD-00433,ML_MATCH,99.99,0.0,0.0,ML match: exact reference match (ref similarity 100.0%); identical amounts; 2-day date gap
+TXN-00435,ORD-00340,ML_MATCH,100.0,2898.94,2.43,ML match: exact reference match (ref similarity 100.0%); amount within 1-3% fee band (2.43% diff); same-day settlement
+TXN-00437,ORD-00021,ML_MATCH,100.0,3185.67,2.49,ML match: exact reference match (ref similarity 100.0%); amount within 1-3% fee band (2.49% diff); same-day settlement
+TXN-00439,ORD-00254,ML_MATCH,100.0,0.0,0.0,ML match: exact reference match (ref similarity 100.0%); identical amounts; 1-day date gap
+TXN-00442,ORD-00281,ML_MATCH,100.0,5992.09,2.15,ML match: exact reference match (ref similarity 100.0%); amount within 1-3% fee band (2.15% diff); same-day settlement
+TXN-00455,ORD-00112,ML_MATCH,100.0,0.0,0.0,ML match: exact reference match (ref similarity 100.0%); identical amounts; 1-day date gap
+TXN-00460,ORD-00398,ML_MATCH,100.0,925.23,1.16,ML match: exact reference match (ref similarity 100.0%); amount within 1-3% fee band (1.16% diff); same-day settlement
+TXN-00461,ORD-00278,ML_MATCH,100.0,2918.32,1.64,ML match: exact reference match (ref similarity 100.0%); amount within 1-3% fee band (1.64% diff); same-day settlement
+TXN-00469,ORD-00010,ML_MATCH,100.0,5592.89,1.87,ML match: exact reference match (ref similarity 100.0%); amount within 1-3% fee band (1.87% diff); same-day settlement
+TXN-00474,ORD-00055,ML_MATCH,99.95,0.0,0.0,ML match: exact reference match (ref similarity 100.0%); identical amounts; 3-day date gap
+TXN-00476,ORD-00014,ML_MATCH,100.0,2916.86,1.17,ML match: exact reference match (ref similarity 100.0%); amount within 1-3% fee band (1.17% diff); same-day settlement
+TXN-00477,ORD-00490,ML_MATCH,100.0,5630.41,2.15,ML match: exact reference match (ref similarity 100.0%); amount within 1-3% fee band (2.15% diff); same-day settlement
+TXN-00479,ORD-00422,ML_MATCH,99.99,0.0,0.0,ML match: exact reference match (ref similarity 100.0%); identical amounts; 2-day date gap
+TXN-00481,ORD-00215,ML_MATCH,100.0,1280.89,1.46,ML match: exact reference match (ref similarity 100.0%); amount within 1-3% fee band (1.46% diff); same-day settlement
+TXN-00486,ORD-00152,ML_MATCH,99.99,0.0,0.0,ML match: exact reference match (ref similarity 100.0%); identical amounts; 2-day date gap
+TXN-00488,ORD-00134,ML_MATCH,99.99,0.0,0.0,ML match: exact reference match (ref similarity 100.0%); identical amounts; 2-day date gap

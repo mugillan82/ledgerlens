@@ -1,0 +1,254 @@
+[
+    {
+        "error_type": "FALSE_POSITIVE",
+        "bank_txn_id": "TXN-00234",
+        "bank_date": "2026-08-14",
+        "bank_amount": 100325.86,
+        "bank_reference": "TXN1407",
+        "pipeline_gateway_id": "ORD-00478",
+        "pipeline_gateway_date": "2026-08-15",
+        "pipeline_gateway_amount": 76970.35,
+        "pipeline_gateway_reference": "REF-TXN1407",
+        "correct_gateway_id": "ORD-00091",
+        "features": {
+            "amount_diff_pct": 23.2797,
+            "date_diff_days": 1,
+            "reference_similarity": 100.0,
+            "amount_within_fee_range": false,
+            "ref_exact_match": true
+        },
+        "failure_explanation": "Near-duplicate confusion: high reference similarity (100%) caused model to match to a wrong gateway entry (amount diff 23.28%)"
+    },
+    {
+        "error_type": "FALSE_POSITIVE",
+        "bank_txn_id": "TXN-00383",
+        "bank_date": "2026-08-15",
+        "bank_amount": 76970.35,
+        "bank_reference": "TXN1470",
+        "pipeline_gateway_id": "ORD-00405",
+        "pipeline_gateway_date": "2026-08-15",
+        "pipeline_gateway_amount": 72117.83,
+        "pipeline_gateway_reference": "REF-TXN1347",
+        "correct_gateway_id": "ORD-00478",
+        "features": {
+            "amount_diff_pct": 6.3044,
+            "date_diff_days": 0,
+            "reference_similarity": 75.0,
+            "amount_within_fee_range": false,
+            "ref_exact_match": false
+        },
+        "failure_explanation": "Model incorrectly matched despite 6.30% amount gap and 0-day date gap \u2014 low-confidence match was accepted above threshold"
+    },
+    {
+        "error_type": "FALSE_POSITIVE",
+        "bank_txn_id": "TXN-00341",
+        "bank_date": "2026-08-22",
+        "bank_amount": 164206.14,
+        "bank_reference": "TXN1473",
+        "pipeline_gateway_id": "ORD-00145",
+        "pipeline_gateway_date": "2026-08-22",
+        "pipeline_gateway_amount": 98523.68,
+        "pipeline_gateway_reference": "REF-TXN1473-A",
+        "correct_gateway_id": "NO_MATCH",
+        "features": {
+            "amount_diff_pct": 40.0,
+            "date_diff_days": 0,
+            "reference_similarity": 88.89,
+            "amount_within_fee_range": false,
+            "ref_exact_match": false
+        },
+        "failure_explanation": "Near-duplicate confusion: high reference similarity (89%) caused model to match to a wrong gateway entry (amount diff 40.00%)"
+    },
+    {
+        "error_type": "FALSE_POSITIVE",
+        "bank_txn_id": "TXN-00239",
+        "bank_date": "2026-08-03",
+        "bank_amount": 132798.07,
+        "bank_reference": "TXN1474",
+        "pipeline_gateway_id": "ORD-00178",
+        "pipeline_gateway_date": "2026-08-03",
+        "pipeline_gateway_amount": 79678.84,
+        "pipeline_gateway_reference": "REF-TXN1474-A",
+        "correct_gateway_id": "NO_MATCH",
+        "features": {
+            "amount_diff_pct": 40.0,
+            "date_diff_days": 0,
+            "reference_similarity": 88.89,
+            "amount_within_fee_range": false,
+            "ref_exact_match": false
+        },
+        "failure_explanation": "Near-duplicate confusion: high reference similarity (89%) caused model to match to a wrong gateway entry (amount diff 40.00%)"
+    },
+    {
+        "error_type": "FALSE_POSITIVE",
+        "bank_txn_id": "TXN-00388",
+        "bank_date": "2026-08-12",
+        "bank_amount": 296301.68,
+        "bank_reference": "TXN1475",
+        "pipeline_gateway_id": "ORD-00176",
+        "pipeline_gateway_date": "2026-08-12",
+        "pipeline_gateway_amount": 177781.01,
+        "pipeline_gateway_reference": "REF-TXN1475-A",
+        "correct_gateway_id": "NO_MATCH",
+        "features": {
+            "amount_diff_pct": 40.0,
+            "date_diff_days": 0,
+            "reference_similarity": 88.89,
+            "amount_within_fee_range": false,
+            "ref_exact_match": false
+        },
+        "failure_explanation": "Near-duplicate confusion: high reference similarity (89%) caused model to match to a wrong gateway entry (amount diff 40.00%)"
+    },
+    {
+        "error_type": "FALSE_POSITIVE",
+        "bank_txn_id": "TXN-00021",
+        "bank_date": "2026-08-15",
+        "bank_amount": 253668.53,
+        "bank_reference": "TXN1478",
+        "pipeline_gateway_id": "ORD-00040",
+        "pipeline_gateway_date": "2026-08-15",
+        "pipeline_gateway_amount": 270412.22,
+        "pipeline_gateway_reference": "REF-TXN1427",
+        "correct_gateway_id": "NO_MATCH",
+        "features": {
+            "amount_diff_pct": 6.6006,
+            "date_diff_days": 0,
+            "reference_similarity": 75.0,
+            "amount_within_fee_range": false,
+            "ref_exact_match": false
+        },
+        "failure_explanation": "Model incorrectly matched despite 6.60% amount gap and 0-day date gap \u2014 low-confidence match was accepted above threshold"
+    },
+    {
+        "error_type": "FALSE_POSITIVE",
+        "bank_txn_id": "TXN-00011",
+        "bank_date": "2026-08-16",
+        "bank_amount": 32442.65,
+        "bank_reference": "TXN1480",
+        "pipeline_gateway_id": "ORD-00480",
+        "pipeline_gateway_date": "2026-08-16",
+        "pipeline_gateway_amount": 31171.31,
+        "pipeline_gateway_reference": "REF-TXN1340",
+        "correct_gateway_id": "NO_MATCH",
+        "features": {
+            "amount_diff_pct": 3.9187,
+            "date_diff_days": 0,
+            "reference_similarity": 75.0,
+            "amount_within_fee_range": false,
+            "ref_exact_match": false
+        },
+        "failure_explanation": "Model incorrectly matched despite 3.92% amount gap and 0-day date gap \u2014 low-confidence match was accepted above threshold"
+    },
+    {
+        "error_type": "FALSE_POSITIVE",
+        "bank_txn_id": "TXN-00170",
+        "bank_date": "2026-08-19",
+        "bank_amount": 89113.78,
+        "bank_reference": "TXN1482",
+        "pipeline_gateway_id": "ORD-00023",
+        "pipeline_gateway_date": "2026-08-19",
+        "pipeline_gateway_amount": 73497.41,
+        "pipeline_gateway_reference": "REF-TXN1428",
+        "correct_gateway_id": "NO_MATCH",
+        "features": {
+            "amount_diff_pct": 17.5241,
+            "date_diff_days": 0,
+            "reference_similarity": 75.0,
+            "amount_within_fee_range": false,
+            "ref_exact_match": false
+        },
+        "failure_explanation": "Model incorrectly matched despite 17.52% amount gap and 0-day date gap \u2014 low-confidence match was accepted above threshold"
+    },
+    {
+        "error_type": "FALSE_NEGATIVE",
+        "bank_txn_id": "TXN-00382",
+        "bank_date": "2026-08-16",
+        "bank_amount": 32108.89,
+        "bank_reference": "TXN1340",
+        "pipeline_gateway_id": "NOT MATCHED",
+        "pipeline_gateway_date": "",
+        "pipeline_gateway_amount": "",
+        "pipeline_gateway_reference": "",
+        "correct_gateway_id": "ORD-00480",
+        "correct_gateway_date": "2026-08-16",
+        "correct_gateway_amount": 31171.31,
+        "correct_gateway_reference": "REF-TXN1340",
+        "features": {
+            "amount_diff_pct": 2.92,
+            "date_diff_days": 0,
+            "reference_similarity": 100.0,
+            "amount_within_fee_range": true,
+            "ref_exact_match": true
+        },
+        "failure_explanation": "True match was outcompeted by a higher-scoring but incorrect candidate (ref sim 100%, amt diff 2.92%, date gap 0d)"
+    },
+    {
+        "error_type": "FALSE_NEGATIVE",
+        "bank_txn_id": "TXN-00478",
+        "bank_date": "2026-08-15",
+        "bank_amount": 73537.1,
+        "bank_reference": "TXN1347",
+        "pipeline_gateway_id": "NOT MATCHED",
+        "pipeline_gateway_date": "",
+        "pipeline_gateway_amount": "",
+        "pipeline_gateway_reference": "",
+        "correct_gateway_id": "ORD-00405",
+        "correct_gateway_date": "2026-08-15",
+        "correct_gateway_amount": 72117.83,
+        "correct_gateway_reference": "REF-TXN1347",
+        "features": {
+            "amount_diff_pct": 1.93,
+            "date_diff_days": 0,
+            "reference_similarity": 100.0,
+            "amount_within_fee_range": true,
+            "ref_exact_match": true
+        },
+        "failure_explanation": "True match was outcompeted by a higher-scoring but incorrect candidate (ref sim 100%, amt diff 1.93%, date gap 0d)"
+    },
+    {
+        "error_type": "FALSE_NEGATIVE",
+        "bank_txn_id": "TXN-00220",
+        "bank_date": "2026-08-16",
+        "bank_amount": 73497.41,
+        "bank_reference": "TXN1428",
+        "pipeline_gateway_id": "NOT MATCHED",
+        "pipeline_gateway_date": "",
+        "pipeline_gateway_amount": "",
+        "pipeline_gateway_reference": "",
+        "correct_gateway_id": "ORD-00023",
+        "correct_gateway_date": "2026-08-19",
+        "correct_gateway_amount": 73497.41,
+        "correct_gateway_reference": "REF-TXN1428",
+        "features": {
+            "amount_diff_pct": 0.0,
+            "date_diff_days": 3,
+            "reference_similarity": 100.0,
+            "amount_within_fee_range": false,
+            "ref_exact_match": true
+        },
+        "failure_explanation": "True match was outcompeted by a higher-scoring but incorrect candidate (ref sim 100%, amt diff 0.00%, date gap 3d)"
+    },
+    {
+        "error_type": "FALSE_NEGATIVE",
+        "bank_txn_id": "TXN-00022",
+        "bank_date": "2026-08-15",
+        "bank_amount": 270412.22,
+        "bank_reference": "TXN1472",
+        "pipeline_gateway_id": "NOT MATCHED",
+        "pipeline_gateway_date": "",
+        "pipeline_gateway_amount": "",
+        "pipeline_gateway_reference": "",
+        "correct_gateway_id": "ORD-00040",
+        "correct_gateway_date": "2026-08-15",
+        "correct_gateway_amount": 270412.22,
+        "correct_gateway_reference": "REF-TXN1427",
+        "features": {
+            "amount_diff_pct": 0.0,
+            "date_diff_days": 0,
+            "reference_similarity": 75.0,
+            "amount_within_fee_range": false,
+            "ref_exact_match": false
+        },
+        "failure_explanation": "True match was outcompeted by a higher-scoring but incorrect candidate (ref sim 75%, amt diff 0.00%, date gap 0d)"
+    }
+]
