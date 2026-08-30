@@ -14,6 +14,7 @@ from src.exact_matcher import run_exact_matcher
 from src.ml_matcher import train_ml_classifier, run_ml_matcher
 from src.exception_handler import run_exception_handler
 from src.reporter import generate_report
+from src.razorpay_client import fetch_live_razorpay_data, create_test_orders
 
 def format_inr(val):
     s = f"{abs(val):.2f}"
@@ -66,7 +67,7 @@ st.markdown("Automated matching, explainable predictions, business impact analyt
 
 # Sidebar Controls
 st.sidebar.header("📁 Data Source Selection")
-mode = st.sidebar.radio("Mode", ["Use Generated Synthetic Data", "Upload Custom Files"])
+mode = st.sidebar.radio("Mode", ["Use Generated Synthetic Data", "Upload Custom Files", "Live Razorpay Test API"])
 
 raw_dir = "data/raw"
 processed_dir = "data/processed"
@@ -74,8 +75,36 @@ processed_dir = "data/processed"
 bank_df = None
 gateway_df = None
 custom_run = False
+is_live_api = False
+api_meta = {}
 
-if mode == "Upload Custom Files":
+if mode == "Live Razorpay Test API":
+    is_live_api = True
+    st.sidebar.markdown("### ⚡ Live Razorpay Test API")
+    st.sidebar.info("Connects to Razorpay using credentials in `.env` or environment secrets.")
+    
+    seed_new = st.sidebar.checkbox("Generate fresh test Orders on Razorpay", value=True, help="Creates real test orders via Razorpay Orders API")
+    order_count = st.sidebar.slider("Number of test orders to generate", min_value=5, max_value=30, value=15) if seed_new else 0
+    
+    if st.sidebar.button("🚀 Fetch Live Data from Razorpay Test API", type="primary"):
+        with st.spinner("Connecting to Razorpay API and fetching live records..."):
+            try:
+                b_df, g_df, meta = fetch_live_razorpay_data(create_new_sample=seed_new, sample_count=order_count)
+                st.session_state["rzp_bank_df"] = b_df
+                st.session_state["rzp_gateway_df"] = g_df
+                st.session_state["rzp_meta"] = meta
+                st.sidebar.success(f"Retrieved {meta['orders_count']} orders from Razorpay API!")
+            except Exception as e:
+                st.sidebar.error(f"API Error: {str(e)}")
+                
+    if "rzp_bank_df" in st.session_state and "rzp_gateway_df" in st.session_state:
+        bank_df = st.session_state["rzp_bank_df"]
+        gateway_df = st.session_state["rzp_gateway_df"]
+        api_meta = st.session_state.get("rzp_meta", {})
+    else:
+        st.info("👈 Click **Fetch Live Data from Razorpay Test API** in the sidebar to retrieve live orders and run reconciliation.")
+
+elif mode == "Upload Custom Files":
     uploaded_bank = st.sidebar.file_uploader("Upload Bank Statement (CSV)", type="csv")
     uploaded_gateway = st.sidebar.file_uploader("Upload Gateway Settlement (CSV)", type="csv")
     
@@ -190,6 +219,9 @@ if bank_df is not None and gateway_df is not None:
         
         if custom_run and 'processing_count' in locals() and processing_count > 0:
             st.info(f"ℹ️ **{processing_count} settlements** are still 'processing' and have been excluded from matching, as they are not yet expected in the bank statement.")
+            
+        if is_live_api:
+            st.info(f"⚡ **Live Razorpay Test Mode Data**: Fetched `{api_meta.get('orders_count', 0)}` real Orders from Razorpay API. (In Test Mode, gateway records reflect live API orders/settlement references, reconciled against settlement credit records).")
             
         # Layout Tabs
         tab1, tab2, tab3, tab4, tab5, tab6 = st.tabs([
