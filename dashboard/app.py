@@ -8,8 +8,9 @@ import json
 # Ensure root directory is on the path so we can import src
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "..")))
 
+from src.data_generator import generate_synthetic_data
 from src.exact_matcher import run_exact_matcher
-from src.ml_matcher import run_ml_matcher
+from src.ml_matcher import train_ml_classifier, run_ml_matcher
 from src.exception_handler import run_exception_handler
 from src.reporter import generate_report
 
@@ -94,11 +95,13 @@ else:
     bank_path = os.path.join(raw_dir, "bank_statement.csv")
     gateway_path = os.path.join(raw_dir, "gateway_settlement.csv")
     
-    if os.path.exists(bank_path) and os.path.exists(gateway_path):
-        bank_df = pd.read_csv(bank_path)
-        gateway_df = pd.read_csv(gateway_path)
-    else:
-        st.warning("Synthetic files not found! Please run the pipeline script (main.py) or generate data.")
+    if not (os.path.exists(bank_path) and os.path.exists(gateway_path)):
+        with st.spinner("Generating initial synthetic financial dataset..."):
+            os.makedirs(raw_dir, exist_ok=True)
+            generate_synthetic_data(raw_dir)
+            
+    bank_df = pd.read_csv(bank_path)
+    gateway_df = pd.read_csv(gateway_path)
 
 if bank_df is not None and gateway_df is not None:
     # Run matching
@@ -106,11 +109,12 @@ if bank_df is not None and gateway_df is not None:
         # Run matches
         exact_matches, unmatched_bank, unmatched_gateway = run_exact_matcher(bank_df, gateway_df)
         
-        # ML matching (fallback if custom file uploaded without trained model - we make sure models exists)
-        model_path = os.path.join("models", "match_classifier.pkl")
+        # ML matching (fallback if model doesn't exist yet on disk)
+        model_dir = "models"
+        model_path = os.path.join(model_dir, "match_classifier.pkl")
         if not os.path.exists(model_path):
-            st.error("ML model not trained yet. Run the pipeline command (main.py) to train the model first.")
-            st.stop()
+            with st.spinner("Training initial ML match classifier..."):
+                train_ml_classifier(raw_dir, model_dir)
             
         ml_matches, still_unmatched_bank, still_unmatched_gateway = run_ml_matcher(
             unmatched_bank, unmatched_gateway, model_path=model_path, threshold=0.7
@@ -385,11 +389,19 @@ if bank_df is not None and gateway_df is not None:
 
             if custom_run:
                 st.warning("Model error analysis is only available for generated synthetic data (requires ground_truth.csv).")
-            elif not os.path.exists(errors_path):
-                st.info("No model_errors.json found. Please run main.py to generate the error analysis file.")
             else:
-                with open(errors_path, "r", encoding="utf-8") as f:
-                    errors = json.load(f)
+                gt_path_raw = os.path.join(raw_dir, "ground_truth.csv")
+                if not os.path.exists(errors_path) and os.path.exists(gt_path_raw):
+                    generate_report(
+                        all_matches, still_unmatched_bank, still_unmatched_gateway,
+                        bank_df, gateway_df, raw_dir, processed_dir
+                    )
+                    
+                if not os.path.exists(errors_path):
+                    st.info("No model_errors.json found. Ground truth comparison is not available.")
+                else:
+                    with open(errors_path, "r", encoding="utf-8") as f:
+                        errors = json.load(f)
 
                 fp_errors = [e for e in errors if e["error_type"] == "FALSE_POSITIVE"]
                 fn_errors = [e for e in errors if e["error_type"] == "FALSE_NEGATIVE"]
