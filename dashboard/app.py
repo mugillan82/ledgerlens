@@ -35,38 +35,36 @@ def format_inr(val):
 
 # Set page config
 st.set_page_config(
-    page_title="AI Finance Controller - ML Edition",
-    page_icon="💰",
+    page_title="LedgerLens - ML Reconciliation Agent",
+    page_icon="🔍",
     layout="wide",
     initial_sidebar_state="expanded"
 )
 
-# Custom styling
+# Custom CSS for polished look
 st.markdown("""
 <style>
-    .reportview-container {
-        background: #0e1117;
-    }
-    .main {
-        background-color: #0e1117;
-        color: #ffffff;
-    }
     .metric-card {
-        background-color: #1e222b;
+        background-color: #f8f9fa;
         border-radius: 10px;
-        padding: 20px;
-        border: 1px solid #2d3139;
-        text-align: center;
-        box-shadow: 2px 2px 10px rgba(0,0,0,0.3);
+        padding: 15px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+        border: 1px solid #e9ecef;
     }
-    h1, h2, h3 {
-        font-family: 'Inter', sans-serif;
-        font-weight: 700;
+    .metric-value {
+        font-size: 24px;
+        font-weight: bold;
+        color: #1f77b4;
+    }
+    .metric-label {
+        font-size: 14px;
+        color: #6c757d;
     }
 </style>
 """, unsafe_allow_html=True)
 
-st.title("💰 AI Finance Controller - ML Reconciliation Agent")
+# ----------------- Main App Layout -----------------
+st.title("🔍 LedgerLens — ML Reconciliation Agent")
 st.markdown("Automated matching, explainable predictions, business impact analytics, and audit validation.")
 
 # Sidebar Controls

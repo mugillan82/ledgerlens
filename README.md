@@ -1,7 +1,7 @@
-# AI Finance Controller — ML Reconciliation Agent
+# LedgerLens — ML Reconciliation Agent
 
 ## Overview
-AI Finance Controller is an end-to-end reconciliation pipeline that reconciles bank statements against payment gateway settlements using deterministic exact matching combined with a trained Machine Learning classifier for ambiguous cases. Built for finance and operations teams who spend hours performing manual line-by-line reconciliation, it automates settlement matching, highlights edge cases with clear reason codes, and provides full auditability and explainability.
+LedgerLens is an end-to-end reconciliation pipeline that reconciles bank statements against payment gateway settlements using deterministic exact matching combined with a trained Machine Learning classifier for ambiguous cases. Built for finance and operations teams who spend hours performing manual line-by-line reconciliation, it automates settlement matching, highlights edge cases with clear reason codes, and provides full auditability and explainability.
 
 ## Problem Statement
 In real-world payment operations, bank statement credits rarely match payment gateway settlement records one-to-one due to processing fee deductions (1–3%), settlement time lags (1–3 days), and reference note truncation or typos introduced across banking rails. Unhandled duplicate records and edge-case exceptions often force finance teams to manually compare mismatched spreadsheets row by row. This manual process is time-consuming, prone to human error, and lacks an audit trail explaining why matches or mismatches occurred.
@@ -40,7 +40,7 @@ Unlike traditional reconciliation tools that depend on brittle hardcoded if-else
 
 ## Project Structure
 ```
-ai-finance-controller/
+ledgerlens/
 ├── dashboard/
 │   └── app.py                     # Streamlit interactive dashboard application
 ├── data/
@@ -78,8 +78,8 @@ ai-finance-controller/
 
 ### 1. Clone the repository
 ```bash
-git clone <repo_url>
-cd ai-finance-controller
+git clone https://github.com/mugillan82/ledgerlens.git
+cd ledgerlens
 ```
 
 ### 2. Create and activate virtual environment
