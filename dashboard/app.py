@@ -202,6 +202,13 @@ if bank_df is not None and gateway_df is not None:
         bank_exc_count = len(still_unmatched_bank)
         gate_exc_count = len(still_unmatched_gateway)
         
+        if is_live_api:
+            st.warning("""
+### ⚡ Live Razorpay Test Mode Transparency Notice
+* **✅ Orders are LIVE** — fetched directly from Razorpay's API in real time.
+* **⚠️ Settlement & bank-side data is SIMULATED** using Razorpay's real fee structure (2% + GST), since Razorpay's test mode does not support programmatic payment capture or settlement generation without a live checkout session — this is a platform-wide constraint, not a limitation of this reconciliation engine.
+""")
+
         # Lay out core counts as cards
         col1, col2, col3, col4, col5 = st.columns(5)
         with col1:
@@ -219,9 +226,6 @@ if bank_df is not None and gateway_df is not None:
         
         if custom_run and 'processing_count' in locals() and processing_count > 0:
             st.info(f"ℹ️ **{processing_count} settlements** are still 'processing' and have been excluded from matching, as they are not yet expected in the bank statement.")
-            
-        if is_live_api:
-            st.info(f"⚡ **Live Razorpay Test Mode Data**: Fetched `{api_meta.get('orders_count', 0)}` real Orders from Razorpay API. (In Test Mode, gateway records reflect live API orders/settlement references, reconciled against settlement credit records).")
             
         # Layout Tabs
         tab1, tab2, tab3, tab4, tab5, tab6 = st.tabs([
