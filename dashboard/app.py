@@ -47,20 +47,15 @@ st.set_page_config(
 st.markdown("""
 <style>
     .metric-card {
-        background-color: #f8f9fa;
+        background-color: var(--secondary-background-color);
         border-radius: 10px;
         padding: 15px;
-        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
-        border: 1px solid #e9ecef;
+        border: 1px solid rgba(128, 128, 128, 0.2);
     }
-    .metric-value {
-        font-size: 24px;
-        font-weight: bold;
-        color: #1f77b4;
-    }
-    .metric-label {
-        font-size: 14px;
-        color: #6c757d;
+    .metric-card h2 {
+        color: var(--text-color);
+        margin: 0;
+        padding-top: 5px;
     }
 </style>
 """, unsafe_allow_html=True)
