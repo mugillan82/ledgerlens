@@ -4,6 +4,7 @@ import streamlit as st
 import pandas as pd
 import matplotlib.pyplot as plt
 import json
+import re
 
 # Ensure root directory is on the path so we can import src
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "..")))
@@ -83,10 +84,46 @@ if mode == "Upload Custom Files":
     uploaded_bank = st.sidebar.file_uploader("Upload Bank Statement (CSV)", type="csv")
     uploaded_gateway = st.sidebar.file_uploader("Upload Gateway Settlement (CSV)", type="csv")
     
+    processing_count = 0
     if uploaded_bank and uploaded_gateway:
         bank_df = pd.read_csv(uploaded_bank)
         gateway_df = pd.read_csv(uploaded_gateway)
         custom_run = True
+        
+        # Schema Detection & Mapping for Bank
+        if all(col in bank_df.columns for col in ["Date", "Amount", "Reference", "Description"]):
+            bank_df = bank_df.rename(columns={
+                "Date": "date",
+                "Amount": "amount",
+                "Reference": "raw_reference",
+                "Description": "description"
+            })
+            
+            # Extract setl_ ID using regex
+            def extract_setl(ref):
+                match = re.search(r"(setl_[a-zA-Z0-9]+)", str(ref), re.IGNORECASE)
+                return match.group(1) if match else str(ref)
+                
+            bank_df["reference_note"] = bank_df["raw_reference"].apply(extract_setl)
+            
+            # Ensure txn_id exists for matching output
+            if "txn_id" not in bank_df.columns:
+                bank_df["txn_id"] = "TXN-UP-" + bank_df.index.astype(str)
+                
+        # Schema Detection & Mapping for Gateway
+        expected_gateway_cols = ["order_id", "payment_id", "settlement_id", "gross_amount", "razorpay_fee", "net_amount", "settlement_date", "status"]
+        if all(col in gateway_df.columns for col in expected_gateway_cols):
+            # Exclude processing settlements from the matching pool entirely
+            processing_mask = gateway_df["status"].str.lower() == "processing"
+            processing_count = processing_mask.sum()
+            gateway_df = gateway_df[~processing_mask].copy()
+            
+            # Map columns to match internal matcher expectations
+            gateway_df = gateway_df.rename(columns={
+                "net_amount": "amount",
+                "settlement_id": "reference_note",
+            })
+            
         st.sidebar.success("Files loaded successfully!")
     else:
         st.sidebar.info("Please upload both CSV files to start matching.")
@@ -156,6 +193,9 @@ if bank_df is not None and gateway_df is not None:
             
         st.markdown("---")
         
+        if custom_run and 'processing_count' in locals() and processing_count > 0:
+            st.info(f"ℹ️ **{processing_count} settlements** are still 'processing' and have been excluded from matching, as they are not yet expected in the bank statement.")
+            
         # Layout Tabs
         tab1, tab2, tab3, tab4, tab5, tab6 = st.tabs([
             "📊 Analytics Dashboard", 
