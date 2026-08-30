@@ -58,6 +58,11 @@ ledgerlens/
 │       └── reconciliation_report.md     # Comprehensive human-readable summary report
 ├── models/
 │   └── match_classifier.pkl       # Serialized trained Logistic Regression classifier
+├── scripts/
+│   └── debug/
+│       ├── diagnose.py            # Diagnosis script for pipeline debugging
+│       ├── diagnose2.py           # Secondary validation script for metric inspection
+│       └── verify_final.py        # Final verification & consistency test script
 ├── src/
 │   ├── __init__.py                # Package initialization
 │   ├── data_generator.py          # Synthetic financial dataset generator (Faker)
@@ -66,11 +71,8 @@ ledgerlens/
 │   ├── fuzzy_matcher.py           # Legacy fuzzy matching logic (pre-ML module)
 │   ├── ml_matcher.py              # Stage 2 ML feature extraction, training & inference
 │   └── reporter.py                # Reporting, validation against GT & business impact calculation
-├── diagnose.py                    # Diagnosis script for pipeline debugging
-├── diagnose2.py                   # Secondary validation script for metric inspection
 ├── main.py                        # Main pipeline execution entry point
 ├── requirements.txt               # Project Python package dependencies
-├── verify_final.py                # Final verification & consistency test script
 └── README.md                      # Project documentation and guide
 ```
 
