@@ -43,87 +43,16 @@ def compute_features(bank_row, gate_row):
 
 def train_ml_classifier(raw_dir="data/raw", model_dir="models"):
     """
-    Offline training phase. Builds a training set from ground_truth.csv and raw statements,
-    trains a Logistic Regression classifier, and saves it.
+    Offline training phase. Compares Logistic Regression, Random Forest, and Gradient Boosting,
+    selects the highest F1 model, and saves it.
     """
-    print("\n--- Training ML Match Classifier ---")
-    df_bank = pd.read_csv(os.path.join(raw_dir, "bank_statement.csv"))
-    df_gateway = pd.read_csv(os.path.join(raw_dir, "gateway_settlement.csv"))
-    df_gt = pd.read_csv(os.path.join(raw_dir, "ground_truth.csv"))
-    
-    # Maps for lookup
-    bank_map = df_bank.set_index("txn_id").to_dict(orient="index")
-    gateway_map = df_gateway.set_index("order_id").to_dict(orient="index")
-    
-    X = []
-    y = []
-    
-    # Process positive examples from ground truth matches
-    true_pairs = []
-    for _, row in df_gt.iterrows():
-        b_id = row["bank_txn_id"]
-        g_id = row["gateway_order_id"]
-        if b_id != "NO_MATCH" and g_id != "NO_MATCH":
-            true_pairs.append((b_id, g_id))
-            
-    print(f"Extracting {len(true_pairs)} positive match samples...")
-    for b_id, g_id in true_pairs:
-        if b_id in bank_map and g_id in gateway_map:
-            features = compute_features(bank_map[b_id], gateway_map[g_id])
-            X.append(features)
-            y.append(1)
-            
-    # Process negative examples (Hard Negatives and Random Negatives)
-    print("Synthesizing negative match samples...")
-    np.random.seed(42)
-    bank_ids = list(bank_map.keys())
-    gate_ids = list(gateway_map.keys())
-    
-    true_set = set(true_pairs)
-    
-    for b_id in bank_ids:
-        # Sample hard negatives: gate records that share close date or amount but aren't the correct match
-        b_row = bank_map[b_id]
-        
-        # Select 2 random ones
-        for _ in range(3):
-            random_g_id = np.random.choice(gate_ids)
-            if (b_id, random_g_id) not in true_set:
-                features = compute_features(b_row, gateway_map[random_g_id])
-                X.append(features)
-                y.append(0)
-                
-    X = np.array(X)
-    y = np.array(y)
-    
-    # Train Logistic Regression
-    clf = LogisticRegression(class_weight='balanced', random_state=42)
-    clf.fit(X, y)
-    
-    # Evaluate
-    y_pred = clf.predict(X)
-    acc = accuracy_score(y, y_pred)
-    prec = precision_score(y, y_pred)
-    rec = recall_score(y, y_pred)
-    
-    print(f"Model Training Accuracy: {acc * 100:.2f}%")
-    print(f"Model Training Precision: {prec * 100:.2f}%")
-    print(f"Model Training Recall: {rec * 100:.2f}%")
-    print("Learned Feature Coefficients:")
-    feature_names = ["amount_diff_pct", "date_diff_days", "reference_similarity",
-                     "amount_within_fee_range", "ref_exact_match"]
-    for name, coef in zip(feature_names, clf.coef_[0]):
-        print(f"  - {name}: {coef:.4f}")
-    print(f"  - Intercept: {clf.intercept_[0]:.4f}")
-    
-    # Save model
-    os.makedirs(model_dir, exist_ok=True)
-    joblib.dump(clf, os.path.join(model_dir, "match_classifier.pkl"))
-    print(f"Saved trained classifier to {os.path.join(model_dir, 'match_classifier.pkl')}")
+    from src.model_comparison import compare_and_train_models
+    results_df, best_model = compare_and_train_models(raw_dir, model_dir)
+    return results_df, best_model
 
 def run_ml_matcher(unmatched_bank, unmatched_gateway, model_path="models/match_classifier.pkl", threshold=0.7):
     """
-    Live matching inference. Predicts matches using the saved Logistic Regression model.
+    Live matching inference. Predicts matches using the saved classifier model.
     """
     if not os.path.exists(model_path):
         raise FileNotFoundError(f"Trained model not found at {model_path}. Please run training first.")
@@ -139,8 +68,8 @@ def run_ml_matcher(unmatched_bank, unmatched_gateway, model_path="models/match_c
     
     gateway_list = gateway.to_dict(orient="records")
     
-    # Feature names map
-    coefs = clf.coef_[0] # coefficients
+    feature_names = ["amount_diff_pct", "date_diff_days", "reference_similarity",
+                     "amount_within_fee_range", "ref_exact_match"]
     
     for _, b_row in bank.iterrows():
         b_id = b_row["txn_id"]
@@ -164,12 +93,6 @@ def run_ml_matcher(unmatched_bank, unmatched_gateway, model_path="models/match_c
                 
         if best_candidate:
             # ── Explainability: real per-pair values ────────────────────────────
-            feature_names = ["amount_diff_pct", "date_diff_days", "reference_similarity",
-                             "amount_within_fee_range", "ref_exact_match"]
-            contributions = []
-            for name, coef, val in zip(feature_names, coefs, best_features):
-                contributions.append((name, coef * val, val))
-
             # Unpack actual feature values for this specific pair
             amt_diff_pct_val  = best_features[0]   # fraction, e.g. 0.0193
             date_diff_val     = best_features[1]   # days

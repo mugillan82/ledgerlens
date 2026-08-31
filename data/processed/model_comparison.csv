@@ -1,0 +1,4 @@
+Model,Accuracy,Precision,Recall,F1 Score,Training Time (ms),Winner
+Logistic Regression,1.0,1.0,1.0,1.0,15.22,[WINNER]
+Random Forest Classifier,1.0,1.0,1.0,1.0,98.89,
+Gradient Boosting Classifier,1.0,1.0,1.0,1.0,66.48,

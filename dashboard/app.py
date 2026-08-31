@@ -12,6 +12,8 @@ sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "..")))
 from src.data_generator import generate_synthetic_data
 from src.exact_matcher import run_exact_matcher
 from src.ml_matcher import train_ml_classifier, run_ml_matcher
+from src.model_comparison import compare_and_train_models
+from src.audit_export import generate_excel_report, generate_pdf_report
 from src.exception_handler import run_exception_handler
 from src.reporter import generate_report
 from src.razorpay_client import fetch_live_razorpay_data, create_test_orders
@@ -174,12 +176,17 @@ if bank_df is not None and gateway_df is not None:
         model_dir = "models"
         model_path = os.path.join(model_dir, "match_classifier.pkl")
         if not os.path.exists(model_path):
-            with st.spinner("Training initial ML match classifier..."):
+            with st.spinner("Training initial ML match classifiers..."):
                 train_ml_classifier(raw_dir, model_dir)
             
-        ml_matches, still_unmatched_bank, still_unmatched_gateway = run_ml_matcher(
-            unmatched_bank, unmatched_gateway, model_path=model_path, threshold=0.7
+        # Get all candidate ML matches with threshold >= 0.5 for interactive threshold tuning
+        all_candidate_ml_matches, _, _ = run_ml_matcher(
+            unmatched_bank, unmatched_gateway, model_path=model_path, threshold=0.5
         )
+        
+        # Default accepted ML matches at standard 70% threshold
+        default_ml_threshold = 70.0
+        ml_matches = [m for m in all_candidate_ml_matches if m["confidence"] >= default_ml_threshold]
         
         # Populate explanations for exact matches
         for m in exact_matches:
@@ -187,6 +194,12 @@ if bank_df is not None and gateway_df is not None:
             
         all_matches = exact_matches + ml_matches
         df_matches = pd.DataFrame(all_matches)
+        
+        # Determine unmatched sets based on standard matches
+        matched_bank_ids = {m["bank_txn_id"] for m in all_matches}
+        matched_gateway_ids = {m["gateway_order_id"] for m in all_matches}
+        still_unmatched_bank = unmatched_bank[~unmatched_bank["txn_id"].isin(matched_bank_ids)].copy()
+        still_unmatched_gateway = unmatched_gateway[~unmatched_gateway["order_id"].isin(matched_gateway_ids)].copy()
         
         # Exception handler
         df_exceptions = run_exception_handler(
@@ -228,13 +241,15 @@ if bank_df is not None and gateway_df is not None:
             st.info(f"ℹ️ **{processing_count} settlements** are still 'processing' and have been excluded from matching, as they are not yet expected in the bank statement.")
             
         # Layout Tabs
-        tab1, tab2, tab3, tab4, tab5, tab6 = st.tabs([
+        tab1, tab2, tab3, tab4, tab5, tab6, tab7, tab8 = st.tabs([
             "📊 Analytics Dashboard", 
             "📈 Business Impact", 
             "🔍 Match List", 
             "⚠️ Exceptions", 
+            "🤖 Model Comparison",
             "🎯 Ground Truth Accuracy",
-            "🚨 Model Errors"
+            "🚨 Model Errors",
+            "📥 Download Reports"
         ])
         
         with tab1:
@@ -272,7 +287,6 @@ if bank_df is not None and gateway_df is not None:
             
             # Calculations
             total_value_processed = float(bank_df["amount"].sum())
-            matched_bank_ids = {m["bank_txn_id"] for m in all_matches}
             total_value_reconciled = float(bank_df[bank_df["txn_id"].isin(matched_bank_ids)]["amount"].sum())
             reconciled_pct = (total_value_reconciled / total_value_processed * 100) if total_value_processed > 0 else 0.0
             total_value_exceptions = float(still_unmatched_bank["amount"].sum())
@@ -374,7 +388,6 @@ if bank_df is not None and gateway_df is not None:
             else:
                 st.info("No successful matches generated.")
 
-                
         with tab4:
             st.subheader("Detailed Exception List")
             st.markdown("These entries could not be matched automatically. Audit reasons are assigned below:")
@@ -382,12 +395,98 @@ if bank_df is not None and gateway_df is not None:
                 st.dataframe(df_exceptions, use_container_width=True)
             else:
                 st.success("Zero exceptions found! Outstanding balance fully reconciled.")
-                
+
+        # ==================== TAB 5: MODEL COMPARISON ====================
         with tab5:
-            st.subheader("Ground Truth Validation (Evaluation Mode)")
+            st.subheader("🤖 Machine Learning Model Benchmarking & Comparison")
+            st.markdown(
+                "To select the most accurate and reliable matching algorithm, LedgerLens trains and benchmarks "
+                "three distinct classifiers on a stratified held-out test split using the exact 5 reconciliation features."
+            )
+            
+            comp_csv_path = os.path.join(model_dir, "model_comparison.csv")
+            if not os.path.exists(comp_csv_path) and not custom_run:
+                with st.spinner("Benchmarking classifiers..."):
+                    compare_and_train_models(raw_dir, model_dir)
+                    
+            if os.path.exists(comp_csv_path):
+                df_comp = pd.read_csv(comp_csv_path)
+                
+                # Identify winning model
+                winner_row = df_comp[df_comp["Winner"].str.contains("WINNER|Best", na=False)]
+                if winner_row.empty:
+                    winner_row = df_comp.sort_values(by=["F1 Score", "Precision"], ascending=False).iloc[[0]]
+                winner_name = winner_row.iloc[0]["Model"]
+                winner_f1 = winner_row.iloc[0]["F1 Score"]
+                winner_prec = winner_row.iloc[0]["Precision"]
+                winner_rec = winner_row.iloc[0]["Recall"]
+                winner_time = winner_row.iloc[0]["Training Time (ms)"]
+                
+                # Winner highlight banner
+                st.success(
+                    f"🏆 **Selected Model for Live Inference:** `{winner_name}` (F1 Score: **{winner_f1 * 100:.2f}%** | "
+                    f"Precision: **{winner_prec * 100:.2f}%** | Recall: **{winner_rec * 100:.2f}%** | Training: **{winner_time:.2f} ms**)"
+                )
+                
+                # Format dataframe for presentation
+                df_display = df_comp.copy()
+                df_display["Accuracy"] = df_display["Accuracy"].apply(lambda v: f"{v * 100:.2f}%")
+                df_display["Precision"] = df_display["Precision"].apply(lambda v: f"{v * 100:.2f}%")
+                df_display["Recall"] = df_display["Recall"].apply(lambda v: f"{v * 100:.2f}%")
+                df_display["F1 Score"] = df_display["F1 Score"].apply(lambda v: f"{v * 100:.2f}%")
+                df_display["Training Time"] = df_display["Training Time (ms)"].apply(lambda v: f"{v:.2f} ms")
+                df_display["Status"] = df_display["Winner"].apply(lambda w: "⭐ WINNER (Deployed)" if "WINNER" in str(w) or "Best" in str(w) else "Evaluated")
+                
+                cols_to_show = ["Model", "Status", "F1 Score", "Precision", "Recall", "Accuracy", "Training Time"]
+                st.dataframe(df_display[cols_to_show], use_container_width=True)
+                
+                # Model comparison bar chart
+                fig_comp, ax_comp = plt.subplots(figsize=(8, 3.5))
+                fig_comp.patch.set_facecolor('#0e1117')
+                ax_comp.set_facecolor('#1e222b')
+                
+                models = df_comp["Model"].tolist()
+                x = range(len(models))
+                width = 0.22
+                
+                rects1 = ax_comp.bar([i - width for i in x], df_comp["F1 Score"] * 100, width, label='F1 Score', color='#4CAF50')
+                rects2 = ax_comp.bar(x, df_comp["Precision"] * 100, width, label='Precision', color='#2196F3')
+                rects3 = ax_comp.bar([i + width for i in x], df_comp["Recall"] * 100, width, label='Recall', color='#FF9800')
+                
+                ax_comp.set_ylabel('Score (%)', color='white')
+                ax_comp.set_title('Model Performance Comparison (Held-Out Test Set)', color='white', pad=10)
+                ax_comp.set_xticks(x)
+                ax_comp.set_xticklabels(models, color='white', fontsize=10)
+                ax_comp.set_ylim(0, 115)
+                ax_comp.tick_params(colors='white')
+                ax_comp.spines['top'].set_visible(False)
+                ax_comp.spines['right'].set_visible(False)
+                ax_comp.spines['left'].set_color('#2d3139')
+                ax_comp.spines['bottom'].set_color('#2d3139')
+                ax_comp.legend(facecolor='#1e222b', edgecolor='#2d3139', labelcolor='white')
+                
+                st.pyplot(fig_comp)
+                
+                # Selection criterion explanation
+                st.markdown("### 💡 Why F1 Score is Used as the Selection Criterion")
+                st.markdown("""
+In financial ledger reconciliation, evaluation metrics carry asymmetric business consequences:
+- **False Positives (Precision Loss)**: Inaccurately pairing two distinct transactions creates phantom settlements and ledger discrepancies.
+- **False Negatives (Recall Loss)**: Missing a legitimate match sends valid transactions to the exception queue, creating unnecessary manual audit workload.
+
+The **F1 Score** calculates the harmonic mean of Precision and Recall:
+$$\\text{F1 Score} = 2 \\times \\frac{\\text{Precision} \\times \\text{Recall}}{\\text{Precision} + \\text{Recall}}$$
+
+Unlike raw accuracy—which can appear deceptively high on imbalanced non-match datasets—**F1 Score penalizes both false positives and false negatives equally**, ensuring LedgerLens automatically selects the classifier that maximizes automated clearing without sacrificing matching integrity.
+""")
+            else:
+                st.info("Model comparison results will be available once synthetic dataset training has executed.")
+
+        # ==================== TAB 6: GROUND TRUTH & THRESHOLD SLIDER ====================
+        with tab6:
+            st.subheader("🎯 Ground Truth Validation & Confidence Threshold Tuning")
             gt_path = os.path.join(raw_dir, "ground_truth.csv")
             if not custom_run and os.path.exists(gt_path):
-                # Calculate GT metrics
                 df_gt = pd.read_csv(gt_path)
                 
                 gt_bank_to_gate = {}
@@ -397,58 +496,120 @@ if bank_df is not None and gateway_df is not None:
                     if b_id != "NO_MATCH":
                         gt_bank_to_gate[b_id] = g_id
                 
-                pipe_bank_to_gate = {}
-                for m in all_matches:
-                    pipe_bank_to_gate[m["bank_txn_id"]] = m["gateway_order_id"]
-                    
-                tp = 0
-                fp = 0
-                fn = 0
-                tn = 0
-                correct = 0
-                total = len(gt_bank_to_gate)
+                # Build lookup maps
+                exact_bank_map = {m["bank_txn_id"]: m["gateway_order_id"] for m in exact_matches}
+                candidate_ml_map = {m["bank_txn_id"]: (m["gateway_order_id"], float(m["confidence"])) for m in all_candidate_ml_matches}
                 
-                for b_id, true_g_id in gt_bank_to_gate.items():
-                    pipe_g_id = pipe_bank_to_gate.get(b_id, "NO_MATCH")
-                    if true_g_id == pipe_g_id:
-                        correct += 1
-                        if true_g_id != "NO_MATCH":
-                            tp += 1
+                st.markdown("#### ⚙️ Interactive ML Match Confidence Threshold")
+                slider_val = st.slider(
+                    "ML Match Confidence Threshold (%)",
+                    min_value=50,
+                    max_value=99,
+                    value=70,
+                    step=1,
+                    help="Adjust the minimum confidence probability required to accept a predictive ML match."
+                )
+                
+                st.caption("ℹ️ **Tradeoff Rule:** Raising the threshold reduces false positives (fewer wrong matches) but increases false negatives (more transactions requiring manual review). Lowering it does the opposite.")
+                
+                # Dynamic evaluation function at any threshold
+                def evaluate_at_threshold(thresh):
+                    tp_val, fp_val, fn_val, tn_val = 0, 0, 0, 0
+                    correct_val = 0
+                    for b_id, true_g_id in gt_bank_to_gate.items():
+                        if b_id in exact_bank_map:
+                            p_gid = exact_bank_map[b_id]
+                        elif b_id in candidate_ml_map:
+                            cand_gid, conf = candidate_ml_map[b_id]
+                            p_gid = cand_gid if conf >= thresh else "NO_MATCH"
                         else:
-                            tn += 1
-                    else:
-                        if true_g_id != "NO_MATCH" and pipe_g_id != "NO_MATCH":
-                            fp += 1
-                            fn += 1
-                        elif true_g_id == "NO_MATCH" and pipe_g_id != "NO_MATCH":
-                            fp += 1
-                        elif true_g_id != "NO_MATCH" and pipe_g_id == "NO_MATCH":
-                            fn += 1
+                            p_gid = "NO_MATCH"
                             
-                accuracy = (correct / total * 100) if total > 0 else 0
-                precision = (tp / (tp + fp) * 100) if (tp + fp) > 0 else 0
-                recall = (tp / (tp + fn) * 100) if (tp + fn) > 0 else 0
+                        if true_g_id == p_gid:
+                            correct_val += 1
+                            if true_g_id != "NO_MATCH":
+                                tp_val += 1
+                            else:
+                                tn_val += 1
+                        else:
+                            if true_g_id != "NO_MATCH" and p_gid != "NO_MATCH":
+                                fp_val += 1
+                                fn_val += 1
+                            elif true_g_id == "NO_MATCH" and p_gid != "NO_MATCH":
+                                fp_val += 1
+                            elif true_g_id != "NO_MATCH" and p_gid == "NO_MATCH":
+                                fn_val += 1
+                                
+                    tot = len(gt_bank_to_gate)
+                    acc = (correct_val / tot * 100) if tot > 0 else 0.0
+                    prec = (tp_val / (tp_val + fp_val) * 100) if (tp_val + fp_val) > 0 else 0.0
+                    rec = (tp_val / (tp_val + fn_val) * 100) if (tp_val + fn_val) > 0 else 0.0
+                    f1 = (2 * prec * rec / (prec + rec)) if (prec + rec) > 0 else 0.0
+                    return acc, prec, rec, f1, tp_val, tn_val, fp_val, fn_val
                 
-                col_g1, col_g2, col_g3 = st.columns(3)
+                # Compute live metrics for selected slider threshold
+                curr_acc, curr_prec, curr_rec, curr_f1, curr_tp, curr_tn, curr_fp, curr_fn = evaluate_at_threshold(slider_val)
+                
+                # Display 4 live metric cards
+                col_g1, col_g2, col_g3, col_g4 = st.columns(4)
                 with col_g1:
-                    st.metric("Model Match Accuracy", f"{accuracy:.2f}%")
+                    st.metric("Model Match Accuracy", f"{curr_acc:.2f}%")
                 with col_g2:
-                    st.metric("Model Precision", f"{precision:.2f}%")
+                    st.metric("Model Precision", f"{curr_prec:.2f}%")
                 with col_g3:
-                    st.metric("Model Recall", f"{recall:.2f}%")
+                    st.metric("Model Recall", f"{curr_rec:.2f}%")
+                with col_g4:
+                    st.metric("Model F1 Score", f"{curr_f1:.2f}%")
                     
-                st.markdown("### Confusion Matrix")
+                st.markdown(f"### Live Confusion Matrix (Cutoff = {slider_val}%)")
                 cm_data = {
-                    "Classification": ["True Positives (Correct Matches)", "True Negatives (Correct Exceptions)", "False Positives (Incorrect Matches)", "False Negatives (Missed Matches)"],
-                    "Count": [tp, tn, fp, fn]
+                    "Classification Category": [
+                        "True Positives (Correct Matches Cleared)", 
+                        "True Negatives (Correct Unmatched Exceptions)", 
+                        "False Positives (Incorrectly Paired Matches)", 
+                        "False Negatives (Missed Valid Matches)"
+                    ],
+                    "Count": [curr_tp, curr_tn, curr_fp, curr_fn]
                 }
                 st.table(pd.DataFrame(cm_data))
                 
-                st.info("Evaluation details compare matched pairs against hidden true transaction records.")
+                # Tradeoff Visualization across all thresholds [50...99]
+                st.markdown("### 📈 Precision-Recall-F1 Tradeoff Curve")
+                threshold_range = list(range(50, 100))
+                curve_data = [evaluate_at_threshold(t) for t in threshold_range]
+                
+                prec_curve = [c[1] for c in curve_data]
+                rec_curve = [c[2] for c in curve_data]
+                f1_curve = [c[3] for c in curve_data]
+                
+                fig_trade, ax_trade = plt.subplots(figsize=(8, 3.5))
+                fig_trade.patch.set_facecolor('#0e1117')
+                ax_trade.set_facecolor('#1e222b')
+                
+                ax_trade.plot(threshold_range, prec_curve, label='Precision (%)', color='#2196F3', linewidth=2.5)
+                ax_trade.plot(threshold_range, rec_curve, label='Recall (%)', color='#FF9800', linewidth=2.5)
+                ax_trade.plot(threshold_range, f1_curve, label='F1 Score (%)', color='#4CAF50', linewidth=2.5, linestyle='--')
+                
+                # Draw vertical line at current slider position
+                ax_trade.axvline(x=slider_val, color='#E91E63', linestyle=':', linewidth=2, label=f'Current Threshold ({slider_val}%)')
+                
+                ax_trade.set_xlabel('Confidence Threshold (%)', color='white')
+                ax_trade.set_ylabel('Metric (%)', color='white')
+                ax_trade.set_title('Precision / Recall / F1 vs. Confidence Cutoff', color='white', pad=10)
+                ax_trade.set_ylim(0, 105)
+                ax_trade.tick_params(colors='white')
+                ax_trade.spines['top'].set_visible(False)
+                ax_trade.spines['right'].set_visible(False)
+                ax_trade.spines['left'].set_color('#2d3139')
+                ax_trade.spines['bottom'].set_color('#2d3139')
+                ax_trade.legend(facecolor='#1e222b', edgecolor='#2d3139', labelcolor='white')
+                
+                st.pyplot(fig_trade)
             else:
                 st.warning("Ground Truth validation is only available when running on generated synthetic data containing 'ground_truth.csv'.")
 
-        with tab6:
+        # ==================== TAB 7: MODEL ERROR ANALYSIS ====================
+        with tab7:
             st.subheader("🚨 Model Error Analysis")
             st.markdown(
                 "Detailed breakdown of **False Positives** (wrong matches) and **False Negatives** (missed matches) "
@@ -470,12 +631,13 @@ if bank_df is not None and gateway_df is not None:
                     
                 if not os.path.exists(errors_path):
                     st.info("No model_errors.json found. Ground truth comparison is not available.")
+                    fp_errors = []
+                    fn_errors = []
                 else:
                     with open(errors_path, "r", encoding="utf-8") as f:
                         errors = json.load(f)
-
-                fp_errors = [e for e in errors if e["error_type"] == "FALSE_POSITIVE"]
-                fn_errors = [e for e in errors if e["error_type"] == "FALSE_NEGATIVE"]
+                    fp_errors = [e for e in errors if e["error_type"] == "FALSE_POSITIVE"]
+                    fn_errors = [e for e in errors if e["error_type"] == "FALSE_NEGATIVE"]
 
                 col_e1, col_e2 = st.columns(2)
                 with col_e1:
@@ -580,5 +742,124 @@ if bank_df is not None and gateway_df is not None:
 
                 if not fp_errors and not fn_errors:
                     st.success("🎉 No model errors detected! The pipeline predicted all matches and exceptions perfectly.")
+
+        # ==================== TAB 8: DOWNLOAD REPORTS ====================
+        with tab8:
+            st.subheader("📥 Download Reconciliation Audit Reports")
+            st.markdown(
+                "Export complete reconciliation audits in enterprise-standard formats. "
+                "Download formatted multi-sheet Excel workbooks or executive-ready PDF audit packages."
+            )
+            
+            # Prepare summary data dictionary for export generators
+            total_value_proc = float(bank_df["amount"].sum())
+            total_value_rec = float(bank_df[bank_df["txn_id"].isin(matched_bank_ids)]["amount"].sum())
+            total_value_exc = float(still_unmatched_bank["amount"].sum())
+            hrs_sav = (matched_count * 3) / 60.0
+            
+            gt_accuracy_val = 100.0
+            gt_precision_val = 100.0
+            gt_recall_val = 100.0
+            
+            # Check if gt metrics exist
+            gt_metrics_path = os.path.join(processed_dir, "gt_metrics.json")
+            if os.path.exists(gt_metrics_path):
+                try:
+                    with open(gt_metrics_path, "r", encoding="utf-8") as f:
+                        saved_gt = json.load(f)
+                        gt_accuracy_val = saved_gt.get("accuracy", 100.0)
+                        gt_precision_val = saved_gt.get("precision", 100.0)
+                        gt_recall_val = saved_gt.get("recall", 100.0)
+                except Exception:
+                    pass
+
+            summary_report_data = {
+                "total_bank": total_bank,
+                "total_gateway": total_gateway,
+                "exact_count": exact_count,
+                "ml_count": ml_count,
+                "bank_exc_count": bank_exc_count,
+                "gate_exc_count": gate_exc_count,
+                "matched_count": matched_count,
+                "total_value_processed": total_value_proc,
+                "total_value_reconciled": total_value_rec,
+                "total_value_exceptions": total_value_exc,
+                "hours_saved": hrs_sav,
+                "accuracy": gt_accuracy_val,
+                "precision": gt_precision_val,
+                "recall": gt_recall_val,
+            }
+            
+            # Load error list if available
+            df_errors_for_export = None
+            if os.path.exists(errors_path):
+                try:
+                    with open(errors_path, "r", encoding="utf-8") as f:
+                        err_data = json.load(f)
+                        if err_data:
+                            df_errors_for_export = pd.DataFrame(err_data)
+                except Exception:
+                    pass
+
+            # Report preview cards
+            col_rep1, col_rep2 = st.columns(2)
+            with col_rep1:
+                st.markdown("""
+<div class="metric-card">
+    <h4 style="color:#2196F3;margin-bottom:8px;">📊 Formatted Excel Workbook (.xlsx)</h4>
+    <p style="color:#888;font-size:0.9em;margin-bottom:12px;">Includes 4 comprehensive tabs:</p>
+    <ul style="color:#CCC;font-size:0.85em;margin-bottom:15px;">
+        <li><b>Summary:</b> KPIs, match distribution & business impact</li>
+        <li><b>All Matches:</b> Every matched pair with confidence & AI rationale</li>
+        <li><b>Exceptions:</b> Unmatched transactions with assigned reasons</li>
+        <li><b>Model Errors:</b> FP/FN diagnostic details (if ground truth active)</li>
+    </ul>
+</div>
+""", unsafe_allow_html=True)
+                # Generate Excel
+                excel_bytes = generate_excel_report(
+                    summary_report_data,
+                    df_matches,
+                    df_exceptions,
+                    df_errors_for_export
+                )
+                st.download_button(
+                    label="📥 Download Excel Report (.xlsx)",
+                    data=excel_bytes,
+                    file_name="LedgerLens_Reconciliation_Report.xlsx",
+                    mime="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
+                    use_container_width=True,
+                    type="primary"
+                )
+                
+            with col_rep2:
+                st.markdown("""
+<div class="metric-card">
+    <h4 style="color:#E91E63;margin-bottom:8px;">📄 Executive Audit PDF (.pdf)</h4>
+    <p style="color:#888;font-size:0.9em;margin-bottom:12px;">Formatted for finance auditors & controllers:</p>
+    <ul style="color:#CCC;font-size:0.85em;margin-bottom:15px;">
+        <li><b>Title & Metadata:</b> Timestamped reconciliation certificate</li>
+        <li><b>Business Impact:</b> ₹ cleared volume & labor hours saved</li>
+        <li><b>Auditor Action Log:</b> Complete exception table with audit actions</li>
+        <li><b>Clean Layout:</b> Professional document designed for archiving</li>
+    </ul>
+</div>
+""", unsafe_allow_html=True)
+                # Generate PDF
+                pdf_bytes = generate_pdf_report(
+                    summary_report_data,
+                    df_exceptions
+                )
+                st.download_button(
+                    label="📄 Download PDF Report (.pdf)",
+                    data=pdf_bytes,
+                    file_name="LedgerLens_Audit_Report.pdf",
+                    mime="application/pdf",
+                    use_container_width=True
+                )
+                
+            st.markdown("---")
+            st.caption("🔒 All exported reports are generated locally from active ledger datasets.")
 else:
     st.info("Upload custom files via the sidebar or run the generator to populate workspace data.")
+

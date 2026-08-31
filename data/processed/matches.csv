@@ -337,36 +337,36 @@ TXN-00483,ORD-00108,EXACT,100.0,0.0,,
 TXN-00484,ORD-00158,EXACT,100.0,0.0,,
 TXN-00485,ORD-00062,EXACT,100.0,0.0,,
 TXN-00487,ORD-00266,EXACT,100.0,0.0,,
-TXN-00011,ORD-00480,ML_MATCH,77.58,1271.34,3.9187,"ML match: partial reference similarity (75.0%, refs differ); amount diff 3.92% (outside normal fee band); same-day settlement"
+TXN-00011,ORD-00480,ML_MATCH,75.37,1271.34,3.9187,"ML match: partial reference similarity (75.0%, refs differ); amount diff 3.92% (outside normal fee band); same-day settlement"
 TXN-00014,ORD-00151,ML_MATCH,100.0,787.89,2.54,ML match: exact reference match (ref similarity 100.0%); amount within 1-3% fee band (2.54% diff); same-day settlement
 TXN-00017,ORD-00441,ML_MATCH,100.0,2828.07,1.14,ML match: exact reference match (ref similarity 100.0%); amount within 1-3% fee band (1.14% diff); same-day settlement
 TXN-00019,ORD-00221,ML_MATCH,100.0,0.0,0.0,ML match: exact reference match (ref similarity 100.0%); identical amounts; 1-day date gap
-TXN-00020,ORD-00244,ML_MATCH,78.87,0.0,0.0,"ML match: partial reference similarity (75.0%, refs differ); identical amounts; same-day settlement"
-TXN-00021,ORD-00040,ML_MATCH,76.66,-16743.69,-6.6006,"ML match: partial reference similarity (75.0%, refs differ); amount diff 6.60% (outside normal fee band); same-day settlement"
+TXN-00020,ORD-00244,ML_MATCH,76.51,0.0,0.0,"ML match: partial reference similarity (75.0%, refs differ); identical amounts; same-day settlement"
+TXN-00021,ORD-00040,ML_MATCH,74.56,-16743.69,-6.6006,"ML match: partial reference similarity (75.0%, refs differ); amount diff 6.60% (outside normal fee band); same-day settlement"
 TXN-00024,ORD-00317,ML_MATCH,100.0,3092.19,1.35,ML match: exact reference match (ref similarity 100.0%); amount within 1-3% fee band (1.35% diff); same-day settlement
-TXN-00032,ORD-00487,ML_MATCH,78.87,0.0,0.0,"ML match: partial reference similarity (75.0%, refs differ); identical amounts; same-day settlement"
-TXN-00034,ORD-00194,ML_MATCH,99.99,0.0,0.0,ML match: exact reference match (ref similarity 100.0%); identical amounts; 2-day date gap
+TXN-00032,ORD-00487,ML_MATCH,76.51,0.0,0.0,"ML match: partial reference similarity (75.0%, refs differ); identical amounts; same-day settlement"
+TXN-00034,ORD-00194,ML_MATCH,99.98,0.0,0.0,ML match: exact reference match (ref similarity 100.0%); identical amounts; 2-day date gap
 TXN-00037,ORD-00045,ML_MATCH,100.0,4730.37,2.66,ML match: exact reference match (ref similarity 100.0%); amount within 1-3% fee band (2.66% diff); same-day settlement
-TXN-00038,ORD-00135,ML_MATCH,78.87,0.0,0.0,"ML match: partial reference similarity (75.0%, refs differ); identical amounts; same-day settlement"
+TXN-00038,ORD-00135,ML_MATCH,76.51,0.0,0.0,"ML match: partial reference similarity (75.0%, refs differ); identical amounts; same-day settlement"
 TXN-00051,ORD-00369,ML_MATCH,100.0,2474.77,1.57,ML match: exact reference match (ref similarity 100.0%); amount within 1-3% fee band (1.57% diff); same-day settlement
 TXN-00059,ORD-00321,ML_MATCH,100.0,541.34,2.92,ML match: exact reference match (ref similarity 100.0%); amount within 1-3% fee band (2.92% diff); same-day settlement
-TXN-00066,ORD-00426,ML_MATCH,99.99,0.0,0.0,ML match: exact reference match (ref similarity 100.0%); identical amounts; 2-day date gap
+TXN-00066,ORD-00426,ML_MATCH,99.98,0.0,0.0,ML match: exact reference match (ref similarity 100.0%); identical amounts; 2-day date gap
 TXN-00070,ORD-00331,ML_MATCH,100.0,2992.79,1.99,ML match: exact reference match (ref similarity 100.0%); amount within 1-3% fee band (1.99% diff); same-day settlement
-TXN-00072,ORD-00393,ML_MATCH,99.95,0.0,0.0,ML match: exact reference match (ref similarity 100.0%); identical amounts; 3-day date gap
-TXN-00076,ORD-00224,ML_MATCH,99.99,0.0,0.0,ML match: exact reference match (ref similarity 100.0%); identical amounts; 2-day date gap
-TXN-00077,ORD-00205,ML_MATCH,78.87,0.0,0.0,"ML match: partial reference similarity (75.0%, refs differ); identical amounts; same-day settlement"
-TXN-00082,ORD-00063,ML_MATCH,99.99,0.0,0.0,ML match: exact reference match (ref similarity 100.0%); identical amounts; 2-day date gap
+TXN-00072,ORD-00393,ML_MATCH,99.91,0.0,0.0,ML match: exact reference match (ref similarity 100.0%); identical amounts; 3-day date gap
+TXN-00076,ORD-00224,ML_MATCH,99.98,0.0,0.0,ML match: exact reference match (ref similarity 100.0%); identical amounts; 2-day date gap
+TXN-00077,ORD-00205,ML_MATCH,76.51,0.0,0.0,"ML match: partial reference similarity (75.0%, refs differ); identical amounts; same-day settlement"
+TXN-00082,ORD-00063,ML_MATCH,99.98,0.0,0.0,ML match: exact reference match (ref similarity 100.0%); identical amounts; 2-day date gap
 TXN-00083,ORD-00019,ML_MATCH,100.0,962.43,2.13,ML match: exact reference match (ref similarity 100.0%); amount within 1-3% fee band (2.13% diff); same-day settlement
 TXN-00084,ORD-00488,ML_MATCH,100.0,3969.8,1.69,ML match: exact reference match (ref similarity 100.0%); amount within 1-3% fee band (1.69% diff); same-day settlement
-TXN-00087,ORD-00162,ML_MATCH,99.95,0.0,0.0,ML match: exact reference match (ref similarity 100.0%); identical amounts; 3-day date gap
+TXN-00087,ORD-00162,ML_MATCH,99.91,0.0,0.0,ML match: exact reference match (ref similarity 100.0%); identical amounts; 3-day date gap
 TXN-00090,ORD-00458,ML_MATCH,100.0,2022.06,1.91,ML match: exact reference match (ref similarity 100.0%); amount within 1-3% fee band (1.91% diff); same-day settlement
-TXN-00091,ORD-00157,ML_MATCH,99.99,0.0,0.0,ML match: exact reference match (ref similarity 100.0%); identical amounts; 2-day date gap
+TXN-00091,ORD-00157,ML_MATCH,99.98,0.0,0.0,ML match: exact reference match (ref similarity 100.0%); identical amounts; 2-day date gap
 TXN-00093,ORD-00295,ML_MATCH,100.0,2316.74,2.72,ML match: exact reference match (ref similarity 100.0%); amount within 1-3% fee band (2.72% diff); same-day settlement
-TXN-00094,ORD-00292,ML_MATCH,78.87,0.0,0.0,"ML match: partial reference similarity (75.0%, refs differ); identical amounts; same-day settlement"
+TXN-00094,ORD-00292,ML_MATCH,76.51,0.0,0.0,"ML match: partial reference similarity (75.0%, refs differ); identical amounts; same-day settlement"
 TXN-00102,ORD-00200,ML_MATCH,100.0,4107.63,2.37,ML match: exact reference match (ref similarity 100.0%); amount within 1-3% fee band (2.37% diff); same-day settlement
 TXN-00103,ORD-00177,ML_MATCH,100.0,0.0,0.0,ML match: exact reference match (ref similarity 100.0%); identical amounts; 1-day date gap
 TXN-00108,ORD-00455,ML_MATCH,100.0,6339.74,2.4,ML match: exact reference match (ref similarity 100.0%); amount within 1-3% fee band (2.40% diff); same-day settlement
-TXN-00113,ORD-00182,ML_MATCH,99.99,0.0,0.0,ML match: exact reference match (ref similarity 100.0%); identical amounts; 2-day date gap
+TXN-00113,ORD-00182,ML_MATCH,99.98,0.0,0.0,ML match: exact reference match (ref similarity 100.0%); identical amounts; 2-day date gap
 TXN-00122,ORD-00389,ML_MATCH,100.0,3350.39,1.67,ML match: exact reference match (ref similarity 100.0%); amount within 1-3% fee band (1.67% diff); same-day settlement
 TXN-00125,ORD-00415,ML_MATCH,100.0,0.0,0.0,ML match: exact reference match (ref similarity 100.0%); identical amounts; 1-day date gap
 TXN-00129,ORD-00223,ML_MATCH,100.0,2417.1,1.68,ML match: exact reference match (ref similarity 100.0%); amount within 1-3% fee band (1.68% diff); same-day settlement
@@ -376,22 +376,22 @@ TXN-00138,ORD-00366,ML_MATCH,100.0,1622.98,2.35,ML match: exact reference match 
 TXN-00139,ORD-00337,ML_MATCH,100.0,390.18,1.5,ML match: exact reference match (ref similarity 100.0%); amount within 1-3% fee band (1.50% diff); same-day settlement
 TXN-00143,ORD-00105,ML_MATCH,100.0,90.06,1.5899,ML match: exact reference match (ref similarity 100.0%); amount within 1-3% fee band (1.59% diff); same-day settlement
 TXN-00146,ORD-00399,ML_MATCH,100.0,2923.85,2.38,ML match: exact reference match (ref similarity 100.0%); amount within 1-3% fee band (2.38% diff); same-day settlement
-TXN-00151,ORD-00156,ML_MATCH,99.99,0.0,0.0,ML match: exact reference match (ref similarity 100.0%); identical amounts; 2-day date gap
+TXN-00151,ORD-00156,ML_MATCH,99.98,0.0,0.0,ML match: exact reference match (ref similarity 100.0%); identical amounts; 2-day date gap
 TXN-00152,ORD-00139,ML_MATCH,100.0,637.84,2.44,ML match: exact reference match (ref similarity 100.0%); amount within 1-3% fee band (2.44% diff); same-day settlement
-TXN-00154,ORD-00489,ML_MATCH,99.95,0.0,0.0,ML match: exact reference match (ref similarity 100.0%); identical amounts; 3-day date gap
+TXN-00154,ORD-00489,ML_MATCH,99.91,0.0,0.0,ML match: exact reference match (ref similarity 100.0%); identical amounts; 3-day date gap
 TXN-00156,ORD-00410,ML_MATCH,100.0,4807.7,2.51,ML match: exact reference match (ref similarity 100.0%); amount within 1-3% fee band (2.51% diff); same-day settlement
 TXN-00160,ORD-00404,ML_MATCH,100.0,3972.92,2.39,ML match: exact reference match (ref similarity 100.0%); amount within 1-3% fee band (2.39% diff); same-day settlement
 TXN-00164,ORD-00129,ML_MATCH,100.0,3108.46,1.54,ML match: exact reference match (ref similarity 100.0%); amount within 1-3% fee band (1.54% diff); same-day settlement
-TXN-00170,ORD-00023,ML_MATCH,72.67,15616.37,10.0,"ML match: partial reference similarity (75.0%, refs differ); amount diff 17.52% (outside normal fee band); same-day settlement"
+TXN-00170,ORD-00023,ML_MATCH,71.09,15616.37,10.0,"ML match: partial reference similarity (75.0%, refs differ); amount diff 17.52% (outside normal fee band); same-day settlement"
 TXN-00178,ORD-00187,ML_MATCH,100.0,418.69,1.09,ML match: exact reference match (ref similarity 100.0%); amount within 1-3% fee band (1.09% diff); same-day settlement
 TXN-00179,ORD-00345,ML_MATCH,100.0,3472.9,1.36,ML match: exact reference match (ref similarity 100.0%); amount within 1-3% fee band (1.36% diff); same-day settlement
 TXN-00181,ORD-00025,ML_MATCH,100.0,4441.03,1.8,ML match: exact reference match (ref similarity 100.0%); amount within 1-3% fee band (1.80% diff); same-day settlement
 TXN-00184,ORD-00456,ML_MATCH,100.0,4735.77,2.55,ML match: exact reference match (ref similarity 100.0%); amount within 1-3% fee band (2.55% diff); same-day settlement
-TXN-00188,ORD-00485,ML_MATCH,99.99,0.0,0.0,ML match: exact reference match (ref similarity 100.0%); identical amounts; 2-day date gap
+TXN-00188,ORD-00485,ML_MATCH,99.98,0.0,0.0,ML match: exact reference match (ref similarity 100.0%); identical amounts; 2-day date gap
 TXN-00192,ORD-00313,ML_MATCH,100.0,5209.84,2.19,ML match: exact reference match (ref similarity 100.0%); amount within 1-3% fee band (2.19% diff); same-day settlement
 TXN-00206,ORD-00179,ML_MATCH,100.0,2132.41,2.62,ML match: exact reference match (ref similarity 100.0%); amount within 1-3% fee band (2.62% diff); same-day settlement
 TXN-00207,ORD-00356,ML_MATCH,100.0,2365.66,2.49,ML match: exact reference match (ref similarity 100.0%); amount within 1-3% fee band (2.49% diff); same-day settlement
-TXN-00208,ORD-00253,ML_MATCH,99.99,0.0,0.0,ML match: exact reference match (ref similarity 100.0%); identical amounts; 2-day date gap
+TXN-00208,ORD-00253,ML_MATCH,99.98,0.0,0.0,ML match: exact reference match (ref similarity 100.0%); identical amounts; 2-day date gap
 TXN-00211,ORD-00073,ML_MATCH,100.0,1833.97,1.04,ML match: exact reference match (ref similarity 100.0%); amount within 1-3% fee band (1.04% diff); same-day settlement
 TXN-00212,ORD-00229,ML_MATCH,100.0,0.0,0.0,ML match: exact reference match (ref similarity 100.0%); identical amounts; 1-day date gap
 TXN-00219,ORD-00147,ML_MATCH,100.0,939.86,1.24,ML match: exact reference match (ref similarity 100.0%); amount within 1-3% fee band (1.24% diff); same-day settlement
@@ -399,56 +399,56 @@ TXN-00222,ORD-00364,ML_MATCH,100.0,2559.61,1.89,ML match: exact reference match 
 TXN-00225,ORD-00090,ML_MATCH,100.0,0.0,0.0,ML match: exact reference match (ref similarity 100.0%); identical amounts; 1-day date gap
 TXN-00226,ORD-00461,ML_MATCH,100.0,0.0,0.0,ML match: exact reference match (ref similarity 100.0%); identical amounts; 1-day date gap
 TXN-00227,ORD-00047,ML_MATCH,100.0,1622.91,1.52,ML match: exact reference match (ref similarity 100.0%); amount within 1-3% fee band (1.52% diff); same-day settlement
-TXN-00232,ORD-00413,ML_MATCH,99.95,0.0,0.0,ML match: exact reference match (ref similarity 100.0%); identical amounts; 3-day date gap
+TXN-00232,ORD-00413,ML_MATCH,99.91,0.0,0.0,ML match: exact reference match (ref similarity 100.0%); identical amounts; 3-day date gap
 TXN-00234,ORD-00478,ML_MATCH,100.0,23355.51,10.0,ML match: exact reference match (ref similarity 100.0%); amount diff 23.28% (outside normal fee band); 1-day date gap
-TXN-00239,ORD-00178,ML_MATCH,99.93,53119.23,10.0,"ML match: high reference similarity (88.9%, refs differ slightly); amount diff 40.00% (outside normal fee band); same-day settlement"
+TXN-00239,ORD-00178,ML_MATCH,99.87,53119.23,10.0,"ML match: high reference similarity (88.9%, refs differ slightly); amount diff 40.00% (outside normal fee band); same-day settlement"
 TXN-00241,ORD-00432,ML_MATCH,100.0,5536.25,2.83,ML match: exact reference match (ref similarity 100.0%); amount within 1-3% fee band (2.83% diff); same-day settlement
 TXN-00242,ORD-00463,ML_MATCH,100.0,5640.2,1.94,ML match: exact reference match (ref similarity 100.0%); amount within 1-3% fee band (1.94% diff); same-day settlement
-TXN-00247,ORD-00190,ML_MATCH,99.95,0.0,0.0,ML match: exact reference match (ref similarity 100.0%); identical amounts; 3-day date gap
-TXN-00248,ORD-00119,ML_MATCH,99.99,0.0,0.0,ML match: exact reference match (ref similarity 100.0%); identical amounts; 2-day date gap
-TXN-00253,ORD-00307,ML_MATCH,99.95,0.0,0.0,ML match: exact reference match (ref similarity 100.0%); identical amounts; 3-day date gap
-TXN-00258,ORD-00230,ML_MATCH,99.99,0.0,0.0,ML match: exact reference match (ref similarity 100.0%); identical amounts; 2-day date gap
+TXN-00247,ORD-00190,ML_MATCH,99.91,0.0,0.0,ML match: exact reference match (ref similarity 100.0%); identical amounts; 3-day date gap
+TXN-00248,ORD-00119,ML_MATCH,99.98,0.0,0.0,ML match: exact reference match (ref similarity 100.0%); identical amounts; 2-day date gap
+TXN-00253,ORD-00307,ML_MATCH,99.91,0.0,0.0,ML match: exact reference match (ref similarity 100.0%); identical amounts; 3-day date gap
+TXN-00258,ORD-00230,ML_MATCH,99.98,0.0,0.0,ML match: exact reference match (ref similarity 100.0%); identical amounts; 2-day date gap
 TXN-00259,ORD-00128,ML_MATCH,100.0,0.0,0.0,ML match: exact reference match (ref similarity 100.0%); identical amounts; 1-day date gap
 TXN-00264,ORD-00180,ML_MATCH,100.0,3233.93,2.47,ML match: exact reference match (ref similarity 100.0%); amount within 1-3% fee band (2.47% diff); same-day settlement
 TXN-00268,ORD-00056,ML_MATCH,100.0,604.41,1.15,ML match: exact reference match (ref similarity 100.0%); amount within 1-3% fee band (1.15% diff); same-day settlement
 TXN-00269,ORD-00201,ML_MATCH,100.0,3565.18,2.45,ML match: exact reference match (ref similarity 100.0%); amount within 1-3% fee band (2.45% diff); same-day settlement
 TXN-00271,ORD-00474,ML_MATCH,100.0,2342.56,2.11,ML match: exact reference match (ref similarity 100.0%); amount within 1-3% fee band (2.11% diff); same-day settlement
-TXN-00272,ORD-00219,ML_MATCH,99.99,0.0,0.0,ML match: exact reference match (ref similarity 100.0%); identical amounts; 2-day date gap
-TXN-00273,ORD-00288,ML_MATCH,99.95,0.0,0.0,ML match: exact reference match (ref similarity 100.0%); identical amounts; 3-day date gap
+TXN-00272,ORD-00219,ML_MATCH,99.98,0.0,0.0,ML match: exact reference match (ref similarity 100.0%); identical amounts; 2-day date gap
+TXN-00273,ORD-00288,ML_MATCH,99.91,0.0,0.0,ML match: exact reference match (ref similarity 100.0%); identical amounts; 3-day date gap
 TXN-00277,ORD-00350,ML_MATCH,100.0,4037.11,1.42,ML match: exact reference match (ref similarity 100.0%); amount within 1-3% fee band (1.42% diff); same-day settlement
-TXN-00284,ORD-00327,ML_MATCH,99.99,0.0,0.0,ML match: exact reference match (ref similarity 100.0%); identical amounts; 2-day date gap
-TXN-00287,ORD-00078,ML_MATCH,99.95,0.0,0.0,ML match: exact reference match (ref similarity 100.0%); identical amounts; 3-day date gap
+TXN-00284,ORD-00327,ML_MATCH,99.98,0.0,0.0,ML match: exact reference match (ref similarity 100.0%); identical amounts; 2-day date gap
+TXN-00287,ORD-00078,ML_MATCH,99.91,0.0,0.0,ML match: exact reference match (ref similarity 100.0%); identical amounts; 3-day date gap
 TXN-00289,ORD-00144,ML_MATCH,100.0,558.7,1.03,ML match: exact reference match (ref similarity 100.0%); amount within 1-3% fee band (1.03% diff); same-day settlement
 TXN-00295,ORD-00160,ML_MATCH,100.0,3972.97,1.59,ML match: exact reference match (ref similarity 100.0%); amount within 1-3% fee band (1.59% diff); same-day settlement
 TXN-00297,ORD-00072,ML_MATCH,100.0,2264.33,1.14,ML match: exact reference match (ref similarity 100.0%); amount within 1-3% fee band (1.14% diff); same-day settlement
 TXN-00298,ORD-00429,ML_MATCH,100.0,5196.27,1.88,ML match: exact reference match (ref similarity 100.0%); amount within 1-3% fee band (1.88% diff); same-day settlement
-TXN-00304,ORD-00427,ML_MATCH,99.99,0.0,0.0,ML match: exact reference match (ref similarity 100.0%); identical amounts; 2-day date gap
+TXN-00304,ORD-00427,ML_MATCH,99.98,0.0,0.0,ML match: exact reference match (ref similarity 100.0%); identical amounts; 2-day date gap
 TXN-00309,ORD-00081,ML_MATCH,100.0,5136.51,1.92,ML match: exact reference match (ref similarity 100.0%); amount within 1-3% fee band (1.92% diff); same-day settlement
 TXN-00311,ORD-00469,ML_MATCH,100.0,2859.41,1.38,ML match: exact reference match (ref similarity 100.0%); amount within 1-3% fee band (1.38% diff); same-day settlement
 TXN-00315,ORD-00067,ML_MATCH,100.0,4993.21,2.78,ML match: exact reference match (ref similarity 100.0%); amount within 1-3% fee band (2.78% diff); same-day settlement
 TXN-00317,ORD-00138,ML_MATCH,100.0,5182.47,1.85,ML match: exact reference match (ref similarity 100.0%); amount within 1-3% fee band (1.85% diff); same-day settlement
 TXN-00321,ORD-00048,ML_MATCH,100.0,5881.6,2.85,ML match: exact reference match (ref similarity 100.0%); amount within 1-3% fee band (2.85% diff); same-day settlement
-TXN-00324,ORD-00248,ML_MATCH,99.99,0.0,0.0,ML match: exact reference match (ref similarity 100.0%); identical amounts; 2-day date gap
-TXN-00328,ORD-00191,ML_MATCH,99.95,0.0,0.0,ML match: exact reference match (ref similarity 100.0%); identical amounts; 3-day date gap
-TXN-00331,ORD-00002,ML_MATCH,99.99,0.0,0.0,ML match: exact reference match (ref similarity 100.0%); identical amounts; 2-day date gap
+TXN-00324,ORD-00248,ML_MATCH,99.98,0.0,0.0,ML match: exact reference match (ref similarity 100.0%); identical amounts; 2-day date gap
+TXN-00328,ORD-00191,ML_MATCH,99.91,0.0,0.0,ML match: exact reference match (ref similarity 100.0%); identical amounts; 3-day date gap
+TXN-00331,ORD-00002,ML_MATCH,99.98,0.0,0.0,ML match: exact reference match (ref similarity 100.0%); identical amounts; 2-day date gap
 TXN-00334,ORD-00084,ML_MATCH,100.0,4962.22,2.4,ML match: exact reference match (ref similarity 100.0%); amount within 1-3% fee band (2.40% diff); same-day settlement
-TXN-00341,ORD-00145,ML_MATCH,99.93,65682.46,10.0,"ML match: high reference similarity (88.9%, refs differ slightly); amount diff 40.00% (outside normal fee band); same-day settlement"
+TXN-00341,ORD-00145,ML_MATCH,99.87,65682.46,10.0,"ML match: high reference similarity (88.9%, refs differ slightly); amount diff 40.00% (outside normal fee band); same-day settlement"
 TXN-00344,ORD-00414,ML_MATCH,100.0,3840.17,1.98,ML match: exact reference match (ref similarity 100.0%); amount within 1-3% fee band (1.98% diff); same-day settlement
 TXN-00349,ORD-00116,ML_MATCH,100.0,5177.04,2.18,ML match: exact reference match (ref similarity 100.0%); amount within 1-3% fee band (2.18% diff); same-day settlement
-TXN-00350,ORD-00445,ML_MATCH,78.87,0.0,0.0,"ML match: partial reference similarity (75.0%, refs differ); identical amounts; same-day settlement"
+TXN-00350,ORD-00445,ML_MATCH,76.51,0.0,0.0,"ML match: partial reference similarity (75.0%, refs differ); identical amounts; same-day settlement"
 TXN-00353,ORD-00424,ML_MATCH,100.0,2772.87,2.7,ML match: exact reference match (ref similarity 100.0%); amount within 1-3% fee band (2.70% diff); same-day settlement
-TXN-00357,ORD-00198,ML_MATCH,99.99,0.0,0.0,ML match: exact reference match (ref similarity 100.0%); identical amounts; 2-day date gap
+TXN-00357,ORD-00198,ML_MATCH,99.98,0.0,0.0,ML match: exact reference match (ref similarity 100.0%); identical amounts; 2-day date gap
 TXN-00362,ORD-00260,ML_MATCH,100.0,5070.86,2.21,ML match: exact reference match (ref similarity 100.0%); amount within 1-3% fee band (2.21% diff); same-day settlement
-TXN-00365,ORD-00320,ML_MATCH,99.99,0.0,0.0,ML match: exact reference match (ref similarity 100.0%); identical amounts; 2-day date gap
-TXN-00367,ORD-00050,ML_MATCH,99.99,0.0,0.0,ML match: exact reference match (ref similarity 100.0%); identical amounts; 2-day date gap
-TXN-00383,ORD-00405,ML_MATCH,76.76,4852.52,6.3044,"ML match: partial reference similarity (75.0%, refs differ); amount diff 6.30% (outside normal fee band); same-day settlement"
-TXN-00384,ORD-00243,ML_MATCH,99.95,0.0,0.0,ML match: exact reference match (ref similarity 100.0%); identical amounts; 3-day date gap
-TXN-00388,ORD-00176,ML_MATCH,99.93,118520.67,10.0,"ML match: high reference similarity (88.9%, refs differ slightly); amount diff 40.00% (outside normal fee band); same-day settlement"
+TXN-00365,ORD-00320,ML_MATCH,99.98,0.0,0.0,ML match: exact reference match (ref similarity 100.0%); identical amounts; 2-day date gap
+TXN-00367,ORD-00050,ML_MATCH,99.98,0.0,0.0,ML match: exact reference match (ref similarity 100.0%); identical amounts; 2-day date gap
+TXN-00383,ORD-00405,ML_MATCH,74.65,4852.52,6.3044,"ML match: partial reference similarity (75.0%, refs differ); amount diff 6.30% (outside normal fee band); same-day settlement"
+TXN-00384,ORD-00243,ML_MATCH,99.91,0.0,0.0,ML match: exact reference match (ref similarity 100.0%); identical amounts; 3-day date gap
+TXN-00388,ORD-00176,ML_MATCH,99.87,118520.67,10.0,"ML match: high reference similarity (88.9%, refs differ slightly); amount diff 40.00% (outside normal fee band); same-day settlement"
 TXN-00394,ORD-00024,ML_MATCH,100.0,3389.28,2.03,ML match: exact reference match (ref similarity 100.0%); amount within 1-3% fee band (2.03% diff); same-day settlement
-TXN-00395,ORD-00280,ML_MATCH,99.99,0.0,0.0,ML match: exact reference match (ref similarity 100.0%); identical amounts; 2-day date gap
-TXN-00397,ORD-00457,ML_MATCH,99.99,0.0,0.0,ML match: exact reference match (ref similarity 100.0%); identical amounts; 2-day date gap
+TXN-00395,ORD-00280,ML_MATCH,99.98,0.0,0.0,ML match: exact reference match (ref similarity 100.0%); identical amounts; 2-day date gap
+TXN-00397,ORD-00457,ML_MATCH,99.98,0.0,0.0,ML match: exact reference match (ref similarity 100.0%); identical amounts; 2-day date gap
 TXN-00398,ORD-00132,ML_MATCH,100.0,1455.53,1.5,ML match: exact reference match (ref similarity 100.0%); amount within 1-3% fee band (1.50% diff); same-day settlement
-TXN-00401,ORD-00136,ML_MATCH,99.95,0.0,0.0,ML match: exact reference match (ref similarity 100.0%); identical amounts; 3-day date gap
+TXN-00401,ORD-00136,ML_MATCH,99.91,0.0,0.0,ML match: exact reference match (ref similarity 100.0%); identical amounts; 3-day date gap
 TXN-00402,ORD-00018,ML_MATCH,100.0,2468.27,1.48,ML match: exact reference match (ref similarity 100.0%); amount within 1-3% fee band (1.48% diff); same-day settlement
 TXN-00409,ORD-00475,ML_MATCH,100.0,2236.01,1.24,ML match: exact reference match (ref similarity 100.0%); amount within 1-3% fee band (1.24% diff); same-day settlement
 TXN-00412,ORD-00173,ML_MATCH,100.0,2070.39,2.72,ML match: exact reference match (ref similarity 100.0%); amount within 1-3% fee band (2.72% diff); same-day settlement
@@ -456,8 +456,8 @@ TXN-00413,ORD-00240,ML_MATCH,100.0,0.0,0.0,ML match: exact reference match (ref 
 TXN-00417,ORD-00188,ML_MATCH,100.0,3343.81,1.61,ML match: exact reference match (ref similarity 100.0%); amount within 1-3% fee band (1.61% diff); same-day settlement
 TXN-00418,ORD-00312,ML_MATCH,100.0,4781.93,1.61,ML match: exact reference match (ref similarity 100.0%); amount within 1-3% fee band (1.61% diff); same-day settlement
 TXN-00419,ORD-00459,ML_MATCH,100.0,4487.35,1.93,ML match: exact reference match (ref similarity 100.0%); amount within 1-3% fee band (1.93% diff); same-day settlement
-TXN-00421,ORD-00209,ML_MATCH,78.87,0.0,0.0,"ML match: partial reference similarity (75.0%, refs differ); identical amounts; same-day settlement"
-TXN-00427,ORD-00433,ML_MATCH,99.99,0.0,0.0,ML match: exact reference match (ref similarity 100.0%); identical amounts; 2-day date gap
+TXN-00421,ORD-00209,ML_MATCH,76.51,0.0,0.0,"ML match: partial reference similarity (75.0%, refs differ); identical amounts; same-day settlement"
+TXN-00427,ORD-00433,ML_MATCH,99.98,0.0,0.0,ML match: exact reference match (ref similarity 100.0%); identical amounts; 2-day date gap
 TXN-00435,ORD-00340,ML_MATCH,100.0,2898.94,2.43,ML match: exact reference match (ref similarity 100.0%); amount within 1-3% fee band (2.43% diff); same-day settlement
 TXN-00437,ORD-00021,ML_MATCH,100.0,3185.67,2.49,ML match: exact reference match (ref similarity 100.0%); amount within 1-3% fee band (2.49% diff); same-day settlement
 TXN-00439,ORD-00254,ML_MATCH,100.0,0.0,0.0,ML match: exact reference match (ref similarity 100.0%); identical amounts; 1-day date gap
@@ -466,10 +466,10 @@ TXN-00455,ORD-00112,ML_MATCH,100.0,0.0,0.0,ML match: exact reference match (ref 
 TXN-00460,ORD-00398,ML_MATCH,100.0,925.23,1.16,ML match: exact reference match (ref similarity 100.0%); amount within 1-3% fee band (1.16% diff); same-day settlement
 TXN-00461,ORD-00278,ML_MATCH,100.0,2918.32,1.64,ML match: exact reference match (ref similarity 100.0%); amount within 1-3% fee band (1.64% diff); same-day settlement
 TXN-00469,ORD-00010,ML_MATCH,100.0,5592.89,1.87,ML match: exact reference match (ref similarity 100.0%); amount within 1-3% fee band (1.87% diff); same-day settlement
-TXN-00474,ORD-00055,ML_MATCH,99.95,0.0,0.0,ML match: exact reference match (ref similarity 100.0%); identical amounts; 3-day date gap
+TXN-00474,ORD-00055,ML_MATCH,99.91,0.0,0.0,ML match: exact reference match (ref similarity 100.0%); identical amounts; 3-day date gap
 TXN-00476,ORD-00014,ML_MATCH,100.0,2916.86,1.17,ML match: exact reference match (ref similarity 100.0%); amount within 1-3% fee band (1.17% diff); same-day settlement
 TXN-00477,ORD-00490,ML_MATCH,100.0,5630.41,2.15,ML match: exact reference match (ref similarity 100.0%); amount within 1-3% fee band (2.15% diff); same-day settlement
-TXN-00479,ORD-00422,ML_MATCH,99.99,0.0,0.0,ML match: exact reference match (ref similarity 100.0%); identical amounts; 2-day date gap
+TXN-00479,ORD-00422,ML_MATCH,99.98,0.0,0.0,ML match: exact reference match (ref similarity 100.0%); identical amounts; 2-day date gap
 TXN-00481,ORD-00215,ML_MATCH,100.0,1280.89,1.46,ML match: exact reference match (ref similarity 100.0%); amount within 1-3% fee band (1.46% diff); same-day settlement
-TXN-00486,ORD-00152,ML_MATCH,99.99,0.0,0.0,ML match: exact reference match (ref similarity 100.0%); identical amounts; 2-day date gap
-TXN-00488,ORD-00134,ML_MATCH,99.99,0.0,0.0,ML match: exact reference match (ref similarity 100.0%); identical amounts; 2-day date gap
+TXN-00486,ORD-00152,ML_MATCH,99.98,0.0,0.0,ML match: exact reference match (ref similarity 100.0%); identical amounts; 2-day date gap
+TXN-00488,ORD-00134,ML_MATCH,99.98,0.0,0.0,ML match: exact reference match (ref similarity 100.0%); identical amounts; 2-day date gap

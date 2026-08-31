@@ -1,12 +1,12 @@
 # AI Finance Reconciliation Report
-Generated: 2026-08-30 18:39:10
+Generated: 2026-08-31 10:21:55
 
 ## Pipeline Summary
 - **Total Bank Transactions**: 488
 - **Total Gateway Settlement Records**: 490
 
 - **Exact Matches**: 338 (69.26%)
-- **ML Matches**: 136 (27.87%) (Avg Confidence: 98.20%)
+- **ML Matches**: 136 (27.87%) (Avg Confidence: 98.01%)
 - **Unmatched Bank Transactions (Exceptions)**: 14 (2.87%)
 - **Unmatched Gateway Transactions (Exceptions)**: 16 (3.27%)
 
