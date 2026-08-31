@@ -1,9 +1,14 @@
 [theme]
 base = "dark"
-primaryColor = "#2196F3"
-backgroundColor = "#0e1117"
-secondaryBackgroundColor = "#1e222b"
-textColor = "#ffffff"
+# Deep teal accent — professional, fintech-appropriate, distinct from default Streamlit red
+primaryColor = "#00BFA5"
+# Rich near-black background — easier on eyes, cleaner than pure black
+backgroundColor = "#0A0F1E"
+# Slightly elevated surface for sidebars, cards, inputs
+secondaryBackgroundColor = "#131929"
+# High-contrast white text
+textColor = "#E8EDF5"
+# Inter is clean, widely used in fintech dashboards
 font = "sans serif"
 
 [server]

@@ -2,7 +2,7 @@ import os
 import sys
 import streamlit as st
 import pandas as pd
-import matplotlib.pyplot as plt
+import plotly.graph_objects as go
 import json
 import re
 
@@ -49,17 +49,49 @@ st.set_page_config(
 # Custom CSS for polished look
 st.markdown("""
 <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+    html, body, [class*="css"] {
+        font-family: 'Inter', sans-serif;
+    }
+
+    /* ── Metric cards ── */
     .metric-card {
-        background-color: var(--secondary-background-color);
-        border-radius: 10px;
-        padding: 15px;
-        border: 1px solid rgba(128, 128, 128, 0.2);
+        background: linear-gradient(135deg, #131929 0%, #0d1422 100%);
+        border-radius: 12px;
+        padding: 18px 20px 16px 20px;
+        border: 1px solid rgba(0, 191, 165, 0.15);
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.35);
+        min-height: 90px;
+        margin-bottom: 4px;
+    }
+    .metric-card h5 {
+        font-size: 0.78rem;
+        font-weight: 600;
+        letter-spacing: 0.06em;
+        text-transform: uppercase;
+        margin: 0 0 6px 0;
     }
     .metric-card h2 {
-        color: var(--text-color);
+        color: #E8EDF5;
+        font-size: 1.9rem;
+        font-weight: 700;
         margin: 0;
-        padding-top: 5px;
+        line-height: 1.1;
     }
+    .metric-card p {
+        font-size: 0.82rem;
+        margin: 4px 0 0 0;
+    }
+
+    /* ── Color accents for metric labels ── */
+    .mc-neutral  { color: #8A95A8; }
+    .mc-teal     { color: #00BFA5; }
+    .mc-blue     { color: #4FC3F7; }
+    .mc-coral    { color: #FF6B6B; }
+    .mc-rose     { color: #F48FB1; }
+    .mc-amber    { color: #FFB74D; }
+    .mc-orange   { color: #FF7043; }
 </style>
 """, unsafe_allow_html=True)
 
@@ -225,15 +257,15 @@ if bank_df is not None and gateway_df is not None:
         # Lay out core counts as cards
         col1, col2, col3, col4, col5 = st.columns(5)
         with col1:
-            st.markdown(f'<div class="metric-card"><h5 style="color:#888;">Total Bank</h5><h2>{total_bank}</h2></div>', unsafe_allow_html=True)
+            st.markdown(f'<div class="metric-card"><h5 class="mc-neutral">Total Bank</h5><h2>{total_bank}</h2></div>', unsafe_allow_html=True)
         with col2:
-            st.markdown(f'<div class="metric-card"><h5 style="color:#4CAF50;">Exact Matches</h5><h2>{exact_count}</h2></div>', unsafe_allow_html=True)
+            st.markdown(f'<div class="metric-card"><h5 class="mc-teal">Exact Matches</h5><h2>{exact_count}</h2></div>', unsafe_allow_html=True)
         with col3:
-            st.markdown(f'<div class="metric-card"><h5 style="color:#2196F3;">ML Matches</h5><h2>{ml_count}</h2></div>', unsafe_allow_html=True)
+            st.markdown(f'<div class="metric-card"><h5 class="mc-blue">ML Matches</h5><h2>{ml_count}</h2></div>', unsafe_allow_html=True)
         with col4:
-            st.markdown(f'<div class="metric-card"><h5 style="color:#F44336;">Bank Exceptions</h5><h2>{bank_exc_count}</h2></div>', unsafe_allow_html=True)
+            st.markdown(f'<div class="metric-card"><h5 class="mc-coral">Bank Exceptions</h5><h2>{bank_exc_count}</h2></div>', unsafe_allow_html=True)
         with col5:
-            st.markdown(f'<div class="metric-card"><h5 style="color:#E91E63;">Gateway Exceptions</h5><h2>{gate_exc_count}</h2></div>', unsafe_allow_html=True)
+            st.markdown(f'<div class="metric-card"><h5 class="mc-rose">Gateway Exceptions</h5><h2>{gate_exc_count}</h2></div>', unsafe_allow_html=True)
             
         st.markdown("---")
         
@@ -257,30 +289,41 @@ if bank_df is not None and gateway_df is not None:
             c_exact_pct = (exact_count / total_bank * 100) if total_bank > 0 else 0
             c_ml_pct = (ml_count / total_bank * 100) if total_bank > 0 else 0
             c_exc_pct = (bank_exc_count / total_bank * 100) if total_bank > 0 else 0
-            
-            fig, ax = plt.subplots(figsize=(7, 3.5))
-            fig.patch.set_facecolor('#0e1117')
-            ax.set_facecolor('#1e222b')
-            
+
             categories = ['Exact Match', 'ML Match', 'Exceptions']
             shares = [c_exact_pct, c_ml_pct, c_exc_pct]
-            colors = ['#4CAF50', '#2196F3', '#F44336']
-            
-            bars = ax.barh(categories, shares, color=colors, height=0.5, edgecolor='#2d3139')
-            ax.set_xlabel('Percentage (%)', color='white')
-            ax.tick_params(colors='white')
-            ax.spines['top'].set_visible(False)
-            ax.spines['right'].set_visible(False)
-            ax.spines['left'].set_color('#2d3139')
-            ax.spines['bottom'].set_color('#2d3139')
-            ax.set_title("Bank Reconciliation Distribution", color='white', pad=10)
-            
-            for bar in bars:
-                width = bar.get_width()
-                ax.text(width + 1, bar.get_y() + bar.get_height()/2, f'{width:.1f}%', 
-                        va='center', ha='left', color='white', fontweight='bold')
-            
-            st.pyplot(fig)
+            bar_colors = ['#00BFA5', '#4FC3F7', '#FF6B6B']
+
+            fig_tab1 = go.Figure(go.Bar(
+                x=shares,
+                y=categories,
+                orientation='h',
+                marker=dict(
+                    color=bar_colors,
+                    line=dict(color='rgba(0,0,0,0)', width=0)
+                ),
+                text=[f'{v:.1f}%' for v in shares],
+                textposition='outside',
+                textfont=dict(color='#E8EDF5', size=13, family='Inter'),
+                hovertemplate='<b>%{y}</b><br>Share: %{x:.2f}%<extra></extra>',
+            ))
+            fig_tab1.update_layout(
+                title=dict(text='Bank Reconciliation Distribution', font=dict(color='#E8EDF5', size=15, family='Inter')),
+                plot_bgcolor='#131929',
+                paper_bgcolor='#0A0F1E',
+                font=dict(color='#E8EDF5', family='Inter'),
+                xaxis=dict(
+                    title='Percentage (%)',
+                    color='#8A95A8',
+                    gridcolor='rgba(255,255,255,0.06)',
+                    range=[0, max(shares + [1]) * 1.2],
+                    zeroline=False,
+                ),
+                yaxis=dict(color='#E8EDF5', gridcolor='rgba(0,0,0,0)'),
+                margin=dict(l=20, r=30, t=50, b=30),
+                height=260,
+            )
+            st.plotly_chart(fig_tab1, use_container_width=True)
             
         with tab2:
             st.subheader("Business Impact & Time Saved")
@@ -295,13 +338,13 @@ if bank_df is not None and gateway_df is not None:
             # Metrics cards
             col_b1, col_b2, col_b3, col_b4 = st.columns(4)
             with col_b1:
-                st.markdown(f'<div class="metric-card"><h5 style="color:#888;">Total Processed</h5><h2>{format_inr(total_value_processed)}</h2></div>', unsafe_allow_html=True)
+                st.markdown(f'<div class="metric-card"><h5 class="mc-neutral">Total Processed</h5><h2>{format_inr(total_value_processed)}</h2></div>', unsafe_allow_html=True)
             with col_b2:
-                st.markdown(f'<div class="metric-card"><h5 style="color:#4CAF50;">Auto-Reconciled</h5><h2>{format_inr(total_value_reconciled)}</h2><p style="color:#4CAF50;font-weight:bold;margin:0;">{reconciled_pct:.2f}% of total</p></div>', unsafe_allow_html=True)
+                st.markdown(f'<div class="metric-card"><h5 class="mc-teal">Auto-Reconciled</h5><h2>{format_inr(total_value_reconciled)}</h2><p class="mc-teal" style="font-weight:600;">{reconciled_pct:.2f}% of total</p></div>', unsafe_allow_html=True)
             with col_b3:
-                st.markdown(f'<div class="metric-card"><h5 style="color:#F44336;">Flagged exceptions</h5><h2>{format_inr(total_value_exceptions)}</h2></div>', unsafe_allow_html=True)
+                st.markdown(f'<div class="metric-card"><h5 class="mc-coral">Flagged Exceptions</h5><h2>{format_inr(total_value_exceptions)}</h2></div>', unsafe_allow_html=True)
             with col_b4:
-                st.markdown(f'<div class="metric-card"><h5 style="color:#FFC107;">Audit Hours Saved</h5><h2>{hours_saved:.2f} hrs</h2><p style="color:#888;margin:0;">at 3 min/record</p></div>', unsafe_allow_html=True)
+                st.markdown(f'<div class="metric-card"><h5 class="mc-amber">Audit Hours Saved</h5><h2>{hours_saved:.2f} hrs</h2><p class="mc-neutral">at 3 min/record</p></div>', unsafe_allow_html=True)
                 
             # Quick summary text
             st.markdown("### Summary Statement")
@@ -440,32 +483,44 @@ if bank_df is not None and gateway_df is not None:
                 cols_to_show = ["Model", "Status", "F1 Score", "Precision", "Recall", "Accuracy", "Training Time"]
                 st.dataframe(df_display[cols_to_show], use_container_width=True)
                 
-                # Model comparison bar chart
-                fig_comp, ax_comp = plt.subplots(figsize=(8, 3.5))
-                fig_comp.patch.set_facecolor('#0e1117')
-                ax_comp.set_facecolor('#1e222b')
-                
-                models = df_comp["Model"].tolist()
-                x = range(len(models))
-                width = 0.22
-                
-                rects1 = ax_comp.bar([i - width for i in x], df_comp["F1 Score"] * 100, width, label='F1 Score', color='#4CAF50')
-                rects2 = ax_comp.bar(x, df_comp["Precision"] * 100, width, label='Precision', color='#2196F3')
-                rects3 = ax_comp.bar([i + width for i in x], df_comp["Recall"] * 100, width, label='Recall', color='#FF9800')
-                
-                ax_comp.set_ylabel('Score (%)', color='white')
-                ax_comp.set_title('Model Performance Comparison (Held-Out Test Set)', color='white', pad=10)
-                ax_comp.set_xticks(x)
-                ax_comp.set_xticklabels(models, color='white', fontsize=10)
-                ax_comp.set_ylim(0, 115)
-                ax_comp.tick_params(colors='white')
-                ax_comp.spines['top'].set_visible(False)
-                ax_comp.spines['right'].set_visible(False)
-                ax_comp.spines['left'].set_color('#2d3139')
-                ax_comp.spines['bottom'].set_color('#2d3139')
-                ax_comp.legend(facecolor='#1e222b', edgecolor='#2d3139', labelcolor='white')
-                
-                st.pyplot(fig_comp)
+                # Model comparison bar chart (Plotly)
+                models_list = df_comp["Model"].tolist()
+
+                fig_comp = go.Figure()
+                fig_comp.add_trace(go.Bar(
+                    name='F1 Score',
+                    x=models_list,
+                    y=df_comp["F1 Score"] * 100,
+                    marker_color='#00BFA5',
+                    hovertemplate='<b>%{x}</b><br>F1 Score: %{y:.2f}%<extra></extra>',
+                ))
+                fig_comp.add_trace(go.Bar(
+                    name='Precision',
+                    x=models_list,
+                    y=df_comp["Precision"] * 100,
+                    marker_color='#4FC3F7',
+                    hovertemplate='<b>%{x}</b><br>Precision: %{y:.2f}%<extra></extra>',
+                ))
+                fig_comp.add_trace(go.Bar(
+                    name='Recall',
+                    x=models_list,
+                    y=df_comp["Recall"] * 100,
+                    marker_color='#FFB74D',
+                    hovertemplate='<b>%{x}</b><br>Recall: %{y:.2f}%<extra></extra>',
+                ))
+                fig_comp.update_layout(
+                    title=dict(text='Model Performance Comparison (Held-Out Test Set)', font=dict(color='#E8EDF5', size=15, family='Inter')),
+                    barmode='group',
+                    plot_bgcolor='#131929',
+                    paper_bgcolor='#0A0F1E',
+                    font=dict(color='#E8EDF5', family='Inter'),
+                    xaxis=dict(color='#E8EDF5', gridcolor='rgba(255,255,255,0.06)'),
+                    yaxis=dict(title='Score (%)', color='#8A95A8', gridcolor='rgba(255,255,255,0.06)', range=[0, 115]),
+                    legend=dict(bgcolor='rgba(19,25,41,0.8)', bordercolor='rgba(0,191,165,0.2)', borderwidth=1),
+                    margin=dict(l=20, r=20, t=50, b=30),
+                    height=340,
+                )
+                st.plotly_chart(fig_comp, use_container_width=True)
                 
                 # Selection criterion explanation
                 st.markdown("### 💡 Why F1 Score is Used as the Selection Criterion")
@@ -582,29 +637,45 @@ Unlike raw accuracy—which can appear deceptively high on imbalanced non-match 
                 rec_curve = [c[2] for c in curve_data]
                 f1_curve = [c[3] for c in curve_data]
                 
-                fig_trade, ax_trade = plt.subplots(figsize=(8, 3.5))
-                fig_trade.patch.set_facecolor('#0e1117')
-                ax_trade.set_facecolor('#1e222b')
-                
-                ax_trade.plot(threshold_range, prec_curve, label='Precision (%)', color='#2196F3', linewidth=2.5)
-                ax_trade.plot(threshold_range, rec_curve, label='Recall (%)', color='#FF9800', linewidth=2.5)
-                ax_trade.plot(threshold_range, f1_curve, label='F1 Score (%)', color='#4CAF50', linewidth=2.5, linestyle='--')
-                
-                # Draw vertical line at current slider position
-                ax_trade.axvline(x=slider_val, color='#E91E63', linestyle=':', linewidth=2, label=f'Current Threshold ({slider_val}%)')
-                
-                ax_trade.set_xlabel('Confidence Threshold (%)', color='white')
-                ax_trade.set_ylabel('Metric (%)', color='white')
-                ax_trade.set_title('Precision / Recall / F1 vs. Confidence Cutoff', color='white', pad=10)
-                ax_trade.set_ylim(0, 105)
-                ax_trade.tick_params(colors='white')
-                ax_trade.spines['top'].set_visible(False)
-                ax_trade.spines['right'].set_visible(False)
-                ax_trade.spines['left'].set_color('#2d3139')
-                ax_trade.spines['bottom'].set_color('#2d3139')
-                ax_trade.legend(facecolor='#1e222b', edgecolor='#2d3139', labelcolor='white')
-                
-                st.pyplot(fig_trade)
+                fig_trade = go.Figure()
+                fig_trade.add_trace(go.Scatter(
+                    x=threshold_range, y=prec_curve,
+                    mode='lines', name='Precision (%)',
+                    line=dict(color='#4FC3F7', width=2.5),
+                    hovertemplate='Threshold: %{x}%<br>Precision: %{y:.1f}%<extra></extra>',
+                ))
+                fig_trade.add_trace(go.Scatter(
+                    x=threshold_range, y=rec_curve,
+                    mode='lines', name='Recall (%)',
+                    line=dict(color='#FFB74D', width=2.5),
+                    hovertemplate='Threshold: %{x}%<br>Recall: %{y:.1f}%<extra></extra>',
+                ))
+                fig_trade.add_trace(go.Scatter(
+                    x=threshold_range, y=f1_curve,
+                    mode='lines', name='F1 Score (%)',
+                    line=dict(color='#00BFA5', width=2.5, dash='dash'),
+                    hovertemplate='Threshold: %{x}%<br>F1: %{y:.1f}%<extra></extra>',
+                ))
+                # Vertical line at current slider value
+                fig_trade.add_vline(
+                    x=slider_val,
+                    line=dict(color='#F48FB1', width=2, dash='dot'),
+                    annotation_text=f'Threshold: {slider_val}%',
+                    annotation_font_color='#F48FB1',
+                    annotation_position='top right',
+                )
+                fig_trade.update_layout(
+                    title=dict(text='Precision / Recall / F1 vs. Confidence Cutoff', font=dict(color='#E8EDF5', size=15, family='Inter')),
+                    plot_bgcolor='#131929',
+                    paper_bgcolor='#0A0F1E',
+                    font=dict(color='#E8EDF5', family='Inter'),
+                    xaxis=dict(title='Confidence Threshold (%)', color='#8A95A8', gridcolor='rgba(255,255,255,0.06)'),
+                    yaxis=dict(title='Metric (%)', color='#8A95A8', gridcolor='rgba(255,255,255,0.06)', range=[0, 105]),
+                    legend=dict(bgcolor='rgba(19,25,41,0.8)', bordercolor='rgba(0,191,165,0.2)', borderwidth=1),
+                    margin=dict(l=20, r=20, t=50, b=30),
+                    height=340,
+                )
+                st.plotly_chart(fig_trade, use_container_width=True)
             else:
                 st.warning("Ground Truth validation is only available when running on generated synthetic data containing 'ground_truth.csv'.")
 
@@ -641,9 +712,9 @@ Unlike raw accuracy—which can appear deceptively high on imbalanced non-match 
 
                 col_e1, col_e2 = st.columns(2)
                 with col_e1:
-                    st.markdown(f'<div class="metric-card"><h5 style="color:#FF5722;">False Positives</h5><h2>{len(fp_errors)}</h2><p style="color:#888;margin:0;">Wrong matches</p></div>', unsafe_allow_html=True)
+                    st.markdown(f'<div class="metric-card"><h5 class="mc-coral">False Positives</h5><h2>{len(fp_errors)}</h2><p class="mc-neutral">Wrong matches</p></div>', unsafe_allow_html=True)
                 with col_e2:
-                    st.markdown(f'<div class="metric-card"><h5 style="color:#FF9800;">False Negatives</h5><h2>{len(fn_errors)}</h2><p style="color:#888;margin:0;">Missed matches</p></div>', unsafe_allow_html=True)
+                    st.markdown(f'<div class="metric-card"><h5 class="mc-orange">False Negatives</h5><h2>{len(fn_errors)}</h2><p class="mc-neutral">Missed matches</p></div>', unsafe_allow_html=True)
 
                 st.markdown("---")
 
