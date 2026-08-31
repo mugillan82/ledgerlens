@@ -1,7 +1,7 @@
 import os
 import json
 import random
-from datetime import datetime
+from datetime import datetime, timedelta
 from dotenv import load_dotenv
 import razorpay
 import pandas as pd
@@ -114,16 +114,31 @@ def fetch_live_razorpay_data(create_new_sample=True, sample_count=10):
         "order_id", "payment_id", "settlement_id", "gross_amount", "razorpay_fee", "net_amount", "settlement_date", "status", "reference_note", "amount"
     ])
     
-    # 2. Build Bank Dataframe from confirmed settlements or simulated bank feed corresponding to settled items
-    # In live Razorpay test mode without connected merchant bank accounts, settled orders/settlements represent the bank credit events
+    # 2. Build Bank Dataframe from confirmed settlements or simulated bank feed corresponding to settled items.
+    # Introduce realistic noise so the exact matcher cannot trivially match everything:
+    #   - 1–2 day settlement lag on the bank credit date
+    #   - Bank reference prefix mangling (NEFT/, IMPS-, RTGS/) so exact ref match fails
+    # This forces the ML layer to exercise fuzzy/feature-based matching, mirroring real bank feeds.
+    BANK_PREFIXES = ["NEFT/", "IMPS-", "RTGS/", "NEFT-", "IMPS/"]
     bank_rows = []
     for idx, row in gateway_df.iterrows():
-        # If it's settled or simulated settled
+        # Random 1-2 day settlement lag
+        try:
+            base_date = datetime.strptime(row["settlement_date"], "%Y-%m-%d")
+        except Exception:
+            base_date = datetime.now()
+        lag_days = random.randint(1, 2)
+        bank_date_str = (base_date + timedelta(days=lag_days)).strftime("%Y-%m-%d")
+
+        # Mangle the reference so exact string match fails; ML must fuzzy-match
+        prefix = random.choice(BANK_PREFIXES)
+        mangled_ref = f"{prefix}{row['reference_note']}"
+
         bank_rows.append({
             "txn_id": f"TXN-RZP-{idx+1:03d}",
-            "date": row["settlement_date"],
+            "date": bank_date_str,
             "amount": row["gross_amount"],
-            "reference_note": row["reference_note"],
+            "reference_note": mangled_ref,
             "raw_reference": f"NEFT-{row['settlement_id']}",
             "description": f"Razorpay Settlement Payout for {row['order_id']}"
         })

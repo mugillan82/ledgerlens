@@ -112,6 +112,12 @@ custom_run = False
 is_live_api = False
 api_meta = {}
 
+# Clear stale live-API session state when switching away from that mode,
+# so cached live DataFrames never bleed into a synthetic or upload session.
+if mode != "Live Razorpay Test API":
+    for _key in ["rzp_bank_df", "rzp_gateway_df", "rzp_meta"]:
+        st.session_state.pop(_key, None)
+
 if mode == "Live Razorpay Test API":
     is_live_api = True
     st.sidebar.markdown("### ⚡ Live Razorpay Test API")
@@ -359,9 +365,9 @@ if bank_df is not None and gateway_df is not None:
         with tab3:
             st.subheader("Match List (with AI Explanations)")
             if not df_matches.empty:
-                # ── Ground-truth cross-check (evaluation mode only) ───────────────
+                # ── Ground-truth cross-check (evaluation mode only — synthetic data only) ───
                 gt_path_tab3 = os.path.join(raw_dir, "ground_truth.csv")
-                if not custom_run and os.path.exists(gt_path_tab3):
+                if not custom_run and not is_live_api and os.path.exists(gt_path_tab3):
                     df_gt_tab3 = pd.read_csv(gt_path_tab3)
                     gt_map = {
                         row["bank_txn_id"]: row["gateway_order_id"]
@@ -541,7 +547,7 @@ Unlike raw accuracy—which can appear deceptively high on imbalanced non-match 
         with tab6:
             st.subheader("🎯 Ground Truth Validation & Confidence Threshold Tuning")
             gt_path = os.path.join(raw_dir, "ground_truth.csv")
-            if not custom_run and os.path.exists(gt_path):
+            if not custom_run and not is_live_api and os.path.exists(gt_path):
                 df_gt = pd.read_csv(gt_path)
                 
                 gt_bank_to_gate = {}
@@ -677,7 +683,12 @@ Unlike raw accuracy—which can appear deceptively high on imbalanced non-match 
                 )
                 st.plotly_chart(fig_trade, use_container_width=True)
             else:
-                st.warning("Ground Truth validation is only available when running on generated synthetic data containing 'ground_truth.csv'.")
+                st.info(
+                    "⚡ **Ground Truth Accuracy is not available in Live Razorpay Test API mode.** "
+                    "Because the live session uses real Razorpay order IDs, there is no pre-built "
+                    "ground truth file to validate against. Switch to **Use Generated Synthetic Data** "
+                    "to use full GT validation and the confidence threshold tuner."
+                )
 
         # ==================== TAB 7: MODEL ERROR ANALYSIS ====================
         with tab7:
@@ -690,8 +701,13 @@ Unlike raw accuracy—which can appear deceptively high on imbalanced non-match 
 
             errors_path = os.path.join(processed_dir, "model_errors.json")
 
-            if custom_run:
-                st.warning("Model error analysis is only available for generated synthetic data (requires ground_truth.csv).")
+            if custom_run or is_live_api:
+                st.info(
+                    "⚡ **Model Error Analysis is not available in this mode.** "
+                    "Ground truth comparison requires the generated synthetic dataset. "
+                    "Switch to **Use Generated Synthetic Data** to see False Positive / "
+                    "False Negative breakdowns."
+                )
             else:
                 gt_path_raw = os.path.join(raw_dir, "ground_truth.csv")
                 if not os.path.exists(errors_path) and os.path.exists(gt_path_raw):
